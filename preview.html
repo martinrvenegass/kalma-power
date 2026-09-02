@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="LUNAAN ENERGY diseña, instala y da servicio a plantas eléctricas industriales de 10 kW a 2500 kW para minería, hotelería, data centers, hospitales, construcción y manufactura.">
+<title>Lunaan Energy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  /* ============ Tokens — identidad Lunaan Energy (tema único, on-brand) ============ */
+  :root{
+    --navy:#1a3a8a;
+    --navy-deep:#0f2258;
+    --navy-800:#16306f;
+    --lima:#d4ff00;
+    --lima-deep:#b9e000;
+    --sky:#4a7fd6;
+    --ice:#e9f0ff;
+    --paper:#f6f8fc;
+    --white:#ffffff;
+    --ink:#0d1836;
+    --ink-soft:#44527d;
+    --line:rgba(13,24,54,.12);
+    --line-strong:rgba(13,24,54,.20);
+    --on-navy:#eef2ff;
+    --on-navy-soft:rgba(238,242,255,.72);
+    --radius:18px;
+    --container:1200px;
+    --ff-display:"Sora","Segoe UI",system-ui,sans-serif;
+    --ff-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+    --ff-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",monospace;
+    --shadow:0 24px 60px -24px rgba(13,24,54,.28);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--ff-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.08;text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  ul{margin:0;padding:0;list-style:none}
+
+  .wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px}
+  .section{padding:104px 0;position:relative;overflow:hidden}
+  .section--navy{background:var(--navy-deep);color:var(--on-navy)}
+  .section--ice{background:var(--ice)}
+  .eyebrow{
+    font-family:var(--ff-mono);font-size:.72rem;font-weight:600;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--sky);display:inline-flex;align-items:center;gap:.6rem;margin-bottom:16px
+  }
+  .section--navy .eyebrow{color:var(--lima)}
+  .title{font-size:clamp(1.9rem,1.2rem + 2.6vw,2.9rem)}
+  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:56ch;margin-top:18px}
+  .section--navy .lead{color:var(--on-navy-soft)}
+
+  /* ============ Líneas decorativas diagonales (navy + verde lima) ============ */
+  .deco::before,.deco::after{content:"";position:absolute;pointer-events:none;transform:rotate(-18deg)}
+  .deco::before{width:150%;height:1.5px;left:-25%;top:11%;background:var(--line-strong)}
+  .deco::after{width:120px;height:3px;left:7%;top:14%;background:var(--lima)}
+  .section--navy.deco::before{background:rgba(238,242,255,.14)}
+  .deco-b::before,.deco-b::after{content:"";position:absolute;pointer-events:none;transform:rotate(-18deg)}
+  .deco-b::before{width:150%;height:1.5px;left:-10%;bottom:16%;background:var(--line-strong)}
+  .deco-b::after{width:90px;height:3px;right:9%;bottom:13%;background:var(--lima)}
+  .section--navy.deco-b::before{background:rgba(238,242,255,.14)}
+
+  /* ============ Botones ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    padding:14px 26px;border-radius:999px;font-weight:700;font-size:.8rem;
+    letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:2px solid transparent;
+    transition:transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
+    font-family:var(--ff-body)
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--lima);color:var(--navy-deep)}
+  .btn-primary:hover{background:var(--lima-deep);box-shadow:0 14px 30px -10px rgba(212,255,0,.5)}
+  .btn-outline{border-color:var(--navy);color:var(--navy)}
+  .btn-outline:hover{background:var(--navy);color:#fff}
+  .btn-ghost-light{border-color:rgba(238,242,255,.55);color:var(--on-navy)}
+  .btn-ghost-light:hover{background:#fff;color:var(--navy-deep)}
+  .btn svg{width:1.05em;height:1.05em}
+
+  /* ============ Header ============ */
+  .header{position:fixed;inset:0 0 auto 0;z-index:80;background:rgba(246,248,252,.82);backdrop-filter:blur(12px);transition:box-shadow .2s ease, background .2s ease}
+  .header.is-scrolled{background:rgba(246,248,252,.96);box-shadow:0 1px 0 var(--line), 0 12px 30px -22px rgba(13,24,54,.4)}
+  .header__bar{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand__mark{width:40px;height:40px;flex:none}
+  .brand__name{font-family:var(--ff-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;line-height:1;color:var(--navy-deep)}
+  .brand__sub{font-family:var(--ff-mono);font-size:.58rem;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:var(--sky);line-height:1;margin-top:4px}
+  .nav{display:flex;align-items:center;gap:30px}
+  .nav a{font-size:.9rem;font-weight:600;color:var(--ink-soft);transition:color .15s ease}
+  .nav a:hover{color:var(--navy)}
+  .header__cta{display:flex}
+  .burger{display:none;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:12px;background:none;cursor:pointer;align-items:center;justify-content:center}
+  .burger span{position:relative;width:20px;height:2px;background:var(--navy-deep);display:block}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--navy-deep);transition:transform .2s ease,opacity .2s ease}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  .mobile-nav{display:none;border-top:1px solid var(--line);background:var(--paper)}
+  .mobile-nav a{display:block;padding:14px 0;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)}
+  .mobile-nav .btn{width:100%;margin-top:16px}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;background:var(--navy-deep);color:var(--on-navy);padding:150px 0 96px;overflow:hidden}
+  .hero__glow{position:absolute;width:520px;height:520px;right:-140px;top:-40px;border-radius:50%;
+    background:radial-gradient(circle,rgba(74,127,214,.55),transparent 70%);filter:blur(10px);pointer-events:none}
+  .hero__grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,1.6rem + 3.6vw,4rem);font-weight:800}
+  .hero h1 em{font-style:normal;color:var(--lima)}
+  .hero__sub{margin-top:22px;font-size:1.15rem;color:var(--on-navy-soft);max-width:44ch}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;padding-top:28px;border-top:1px solid rgba(238,242,255,.16);max-width:460px}
+  .stats dt{font-family:var(--ff-mono);font-size:1.5rem;font-weight:600;color:var(--lima);font-variant-numeric:tabular-nums}
+  .stats dd{margin:6px 0 0;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-soft)}
+  .hero__card{position:relative;border:1px solid rgba(238,242,255,.16);border-radius:24px;padding:32px;
+    background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));backdrop-filter:blur(6px)}
+  .hero__card::before{content:"";position:absolute;left:-4px;top:34px;width:5px;height:64px;border-radius:999px;background:var(--lima)}
+  .hero__card .kicker{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lima)}
+  .hero__card h3{margin-top:12px;font-size:1.4rem;font-weight:700}
+  .hero__card ul{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+  .hero__card li{display:flex;gap:12px;font-size:.92rem;color:var(--on-navy-soft)}
+  .hero__card li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--lima)}
+
+  /* ============ Sobre ============ */
+  .about__grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .chips{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px}
+  .chip{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.9rem;color:var(--navy-deep)}
+  .chip svg{width:18px;height:18px;color:var(--sky)}
+  .diff{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .diff__card{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--white);transition:transform .18s ease,box-shadow .18s ease}
+  .diff__card:nth-child(odd){background:var(--ice)}
+  .diff__card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .diff__card .bar{width:40px;height:4px;border-radius:999px;background:var(--lima);margin-bottom:16px}
+  .diff__card h3{font-size:1rem}
+  .diff__card p{margin-top:8px;font-size:.9rem;color:var(--ink-soft)}
+
+  /* ============ Grids de tarjetas ============ */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+
+  /* Catálogo */
+  .plant{position:relative;display:flex;flex-direction:column;border:1px solid rgba(238,242,255,.14);
+    border-radius:var(--radius);padding:26px;background:rgba(255,255,255,.045);transition:transform .18s ease,border-color .18s ease}
+  .plant:hover{transform:translateY(-4px);border-color:rgba(238,242,255,.32)}
+  .plant.is-featured{border-color:var(--lima);background:rgba(255,255,255,.09)}
+  .plant__badge{position:absolute;top:20px;right:20px;background:var(--lima);color:var(--navy-deep);
+    font-family:var(--ff-mono);font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+  .plant__power{font-family:var(--ff-mono);font-size:2.1rem;font-weight:600;color:var(--lima);font-variant-numeric:tabular-nums}
+  .plant h3{margin-top:6px;font-size:1.05rem}
+  .plant__desc{margin-top:10px;font-size:.88rem;color:var(--on-navy-soft)}
+  .spec{margin-top:18px;border-top:1px solid rgba(238,242,255,.14);padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+  .spec div{display:flex;flex-direction:column}
+  .spec dt{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(238,242,255,.5)}
+  .spec dd{margin:2px 0 0;font-family:var(--ff-mono);font-size:.82rem;color:var(--on-navy);font-variant-numeric:tabular-nums}
+  .plant__uses{margin-top:14px;font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(238,242,255,.5)}
+  .plant__link{margin-top:20px;display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.82rem;color:var(--lima)}
+  .plant__link svg{width:1em;height:1em;transition:transform .15s ease}
+  .plant:hover .plant__link svg{transform:translateX(3px)}
+
+  /* Industrias */
+  .sector{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;background:var(--white);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .sector:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(26,58,138,.28)}
+  .sector__ico{width:54px;height:54px;border-radius:14px;background:var(--navy-deep);color:var(--lima);
+    display:flex;align-items:center;justify-content:center;transition:background .18s ease}
+  .sector:hover .sector__ico{background:var(--navy)}
+  .sector__ico svg{width:26px;height:26px}
+  .sector h3{margin-top:18px;font-size:1.05rem}
+  .sector p{margin-top:8px;font-size:.9rem;color:var(--ink-soft)}
+  .sector .bar{margin-top:18px;width:40px;height:4px;border-radius:999px;background:var(--lima);transition:width .2s ease}
+  .sector:hover .bar{width:64px}
+
+  /* ============ Cotización ============ */
+  .quote__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+  .quote__list{margin-top:30px;display:flex;flex-direction:column;gap:16px}
+  .quote__list li{display:flex;gap:12px;font-size:.92rem;font-weight:500;color:var(--ink-soft)}
+  .quote__list li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--lima)}
+  form.card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:var(--shadow)}
+  .field{display:flex;flex-direction:column;margin-bottom:18px}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field.two .col{display:flex;flex-direction:column}
+  label{font-family:var(--ff-mono);font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px}
+  input,select,textarea{
+    font-family:var(--ff-body);font-size:.95rem;color:var(--ink);background:var(--white);
+    border:1px solid var(--line-strong);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .15s ease,box-shadow .15s ease;width:100%
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,58,138,.14)}
+  textarea{resize:vertical;min-height:84px}
+  .err{margin-top:6px;font-size:.78rem;color:#d1373b}
+  input.invalid,select.invalid{border-color:#d1373b}
+  .form-note{margin-top:12px;font-size:.76rem;color:var(--ink-soft)}
+  .form-ok{text-align:center;padding:14px 0}
+  .form-ok .tick{width:56px;height:56px;border-radius:50%;background:var(--lima);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin:0 auto}
+  .form-ok h3{margin-top:18px;font-size:1.25rem}
+  .form-ok p{margin-top:8px;font-size:.9rem;color:var(--ink-soft)}
+  .form-ok .row{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+  /* ============ Banda WhatsApp ============ */
+  .wa-band{position:relative;border:1px solid rgba(212,255,0,.4);border-radius:24px;padding:38px;
+    background:rgba(255,255,255,.05);backdrop-filter:blur(6px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  .wa-band h2{font-size:clamp(1.4rem,1rem + 1.6vw,2rem)}
+  .wa-band p{margin-top:10px;color:var(--on-navy-soft)}
+
+  /* ============ Footer ============ */
+  .footer{background:#0a1a44;color:var(--on-navy);padding:64px 0 28px;position:relative}
+  .footer::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--lima)}
+  .footer__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px}
+  .footer h4{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lima)}
+  .footer ul{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+  .footer ul a{font-size:.9rem;color:var(--on-navy-soft)}
+  .footer ul a:hover{color:#fff}
+  .footer__intro p{margin-top:14px;font-size:.9rem;color:var(--on-navy-soft);max-width:34ch}
+  .footer__contact{margin-top:16px;font-family:var(--ff-mono);font-size:.85rem;color:var(--lima);display:inline-flex;gap:.5rem;align-items:center}
+  .socials{display:flex;gap:10px;margin-top:6px}
+  .socials a{width:36px;height:36px;border:1px solid rgba(238,242,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--on-navy-soft);transition:color .15s ease,border-color .15s ease}
+  .socials a:hover{color:var(--lima);border-color:var(--lima)}
+  .socials svg{width:16px;height:16px}
+  .footer__legal{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;border-top:1px solid rgba(238,242,255,.14);padding-top:22px;font-size:.78rem;color:var(--on-navy-soft)}
+
+  /* ============ Flotantes ============ */
+  .fab{position:fixed;right:20px;z-index:90;width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px -12px rgba(13,24,54,.5)}
+  .fab--wa{bottom:88px;background:#25d366;color:#fff}
+  .fab--chat{bottom:20px;background:var(--lima);color:var(--navy-deep)}
+  .fab svg{width:26px;height:26px}
+  .fab--wa svg{width:28px;height:28px}
+
+  .chat{position:fixed;right:20px;bottom:88px;z-index:95;width:min(calc(100vw - 40px),380px);height:560px;
+    background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 40px 80px -30px rgba(13,24,54,.5)}
+  .chat.is-open{display:flex}
+  .chat__head{background:var(--navy-deep);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+  .chat__head .brand__name{color:#fff}
+  .chat__head button{background:none;border:none;color:rgba(255,255,255,.8);cursor:pointer}
+  .chat__tag{background:var(--lima);color:var(--navy-deep);font-family:var(--ff-mono);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px}
+  .chat__log{flex:1;overflow-y:auto;background:linear-gradient(var(--ice),#fff);padding:16px;display:flex;flex-direction:column;gap:10px}
+  .msg{max-width:82%;padding:9px 13px;border-radius:14px;font-size:.88rem;line-height:1.5}
+  .msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line)}
+  .msg.user{align-self:flex-end;background:var(--navy);color:#fff}
+  .chat__foot{border-top:1px solid var(--line);padding:12px;background:#fff}
+  .chat__opts{display:flex;flex-wrap:wrap;gap:8px}
+  .chat__opts button{border:1px solid rgba(26,58,138,.3);background:#fff;color:var(--navy);border-radius:999px;
+    padding:7px 12px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:var(--ff-body)}
+  .chat__opts button:hover{background:var(--navy);color:#fff}
+  .chat__form{display:flex;gap:8px}
+  .chat__form input{border-radius:999px}
+  .chat__form button{flex:none;width:38px;height:38px;border-radius:50%;border:none;background:var(--navy);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .chat__form button:disabled{opacity:.4;cursor:not-allowed}
+  .chat__progress{margin-top:8px;text-align:center;font-family:var(--ff-mono);font-size:.62rem;color:var(--ink-soft)}
+  .chat__cta{display:flex;flex-direction:column;gap:8px;padding-top:4px}
+  .chat__cta .btn{width:100%;padding:11px;font-size:.72rem}
+  .chat__cta .reset{border:1px solid var(--line-strong);background:none;color:var(--ink-soft);border-radius:999px;padding:9px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:var(--ff-body)}
+
+  /* ============ Animación de entrada ============ */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ============ Responsive ============ */
+  @media (max-width:960px){
+    .nav,.header__cta{display:none}
+    .burger{display:flex}
+    .header.is-open .mobile-nav{display:block;padding:8px 24px 22px}
+    .hero__grid,.about__grid,.quote__grid{grid-template-columns:1fr;gap:44px}
+    .grid-3{grid-template-columns:1fr 1fr}
+    .footer__grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:620px){
+    .section{padding:76px 0}
+    .grid-3,.diff,.field.two{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(3,1fr);gap:12px}
+    .footer__grid{grid-template-columns:1fr}
+    .wa-band{padding:26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="header">
+  <div class="wrap header__bar">
+    <a href="#top" class="brand" aria-label="LUNAAN ENERGY">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M19 4h10v15h15v10H29v15H19V29H4V19h15V4z" fill="#1a3a8a"/>
+        <path d="M26 12l-9 13h6l-3 11 10-14h-6l2-10z" fill="#d4ff00"/>
+      </svg>
+      <span>
+        <span class="brand__name">LUNAAN</span>
+        <span class="brand__sub">Energy</span>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#sobre">Sobre Lunaan</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#industrias">Industrias</a>
+      <a href="#cotizacion">Cotización</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="header__cta">
+      <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas." href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+  <div class="wrap mobile-nav" id="mobileNav">
+    <a href="#sobre">Sobre Lunaan</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#industrias">Industrias</a>
+    <a href="#cotizacion">Cotización</a>
+    <a href="#contacto">Contacto</a>
+    <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas." href="#">WhatsApp +52 564 181 9907</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <span class="hero__glow" aria-hidden="true"></span>
+  <div class="wrap hero__grid">
+    <div class="reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M13 2 4.5 13.5H11l-2 8.5 8.5-12H11l2-8Z"/></svg>
+        Plantas eléctricas industriales
+      </span>
+      <h1>El futuro es <em>la energía</em></h1>
+      <p class="hero__sub">En LUNAAN ENERGY diseñamos, instalamos y damos servicio a plantas eléctricas de 10 kW a 2500 kW para que tu operación nunca se detenga.</p>
+      <div class="hero__actions">
+        <a class="btn btn-primary" href="#cotizacion">Solicitar cotización
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost-light" data-wa="Hola LUNAAN ENERGY, quiero asesoría sobre una planta eléctrica." href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Hablar por WhatsApp
+        </a>
+      </div>
+      <dl class="stats">
+        <div><dt>10–2500</dt><dd>kW por planta</dd></div>
+        <div><dt>24/7</dt><dd>Servicio en sitio</dd></div>
+        <div><dt>&lt;10 s</dt><dd>Transferencia auto.</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__card reveal">
+      <p class="kicker">Energía continua</p>
+      <h3>Respaldo y generación primaria para minería, salud, data centers e industria.</h3>
+      <ul>
+        <li>Dimensionamiento según tu curva de carga real</li>
+        <li>Cabinas insonorizadas y bajas emisiones</li>
+        <li>Monitoreo remoto IoT y mantenimiento predictivo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE LUNAAN ===================== -->
+<section class="section deco" id="sobre">
+  <div class="wrap about__grid">
+    <div class="reveal">
+      <span class="eyebrow">Sobre Lunaan</span>
+      <h2 class="title">Energía confiable, ingeniería sin concesiones</h2>
+      <p class="lead">LUNAAN ENERGY es una compañía especializada en soluciones de generación eléctrica para la industria. Acompañamos a cada cliente desde el estudio de carga hasta la puesta en marcha y el servicio post-venta.</p>
+      <p class="lead">Trabajamos con plantas de 10 kW a 2500 kW en configuraciones de respaldo, continuas y en paralelo, adaptadas a cada sector.</p>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>+200 proyectos</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Cobertura nacional</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>Refacciones garantizadas</span>
+      </div>
+    </div>
+    <div class="diff reveal">
+      <div class="diff__card"><div class="bar"></div><h3>Ingeniería a la medida</h3><p>Dimensionamos cada planta según tu curva de carga real, no catálogos genéricos.</p></div>
+      <div class="diff__card"><div class="bar"></div><h3>Respuesta 24/7</h3><p>Red de servicio y refacciones con atención garantizada en sitio.</p></div>
+      <div class="diff__card"><div class="bar"></div><h3>Eficiencia y bajas emisiones</h3><p>Motores Tier 3 / Stage IIIA con menor consumo de combustible por kWh.</p></div>
+      <div class="diff__card"><div class="bar"></div><h3>Monitoreo inteligente</h3><p>Telemetría IoT para anticipar mantenimientos y evitar fallas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATÁLOGO ===================== -->
+<section class="section section--navy deco" id="catalogo">
+  <div class="wrap">
+    <div class="reveal" style="max-width:620px">
+      <span class="eyebrow">Catálogo</span>
+      <h2 class="title">Seis rangos de potencia para cada operación</h2>
+      <p class="lead">Cada planta se entrega calibrada, con tablero de transferencia y plan de mantenimiento. ¿No sabes qué capacidad necesitas? Te ayudamos a dimensionarla.</p>
+    </div>
+    <div class="grid-3" id="plantGrid"></div>
+    <div style="margin-top:44px">
+      <a class="btn btn-primary" href="#cotizacion">Comparar y cotizar en línea
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INDUSTRIAS ===================== -->
+<section class="section section--ice deco" id="industrias">
+  <div class="wrap">
+    <div class="reveal" style="max-width:620px">
+      <span class="eyebrow">Industrias</span>
+      <h2 class="title">Soluciones por sector</h2>
+      <p class="lead">Adaptamos la ingeniería, la cabina y el plan de servicio al contexto real de cada industria.</p>
+    </div>
+    <div class="grid-3" id="sectorGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== COTIZACIÓN ===================== -->
+<section class="section deco-b" id="cotizacion">
+  <div class="wrap quote__grid">
+    <div class="reveal">
+      <span class="eyebrow">Cotización</span>
+      <h2 class="title">Recibe tu propuesta en 24 horas</h2>
+      <p class="lead">Cuéntanos qué necesitas y un ingeniero de LUNAAN ENERGY preparará una cotización con la planta adecuada, tablero de transferencia y plan de servicio.</p>
+      <ul class="quote__list">
+        <li>Asesoría técnica sin costo</li>
+        <li>Opciones de compra, renta y renta con opción a compra</li>
+        <li>Entrega e instalación en toda la república</li>
+      </ul>
+    </div>
+
+    <form class="card reveal" id="quoteForm" novalidate>
+      <div id="formBody">
+        <div class="field">
+          <label for="q-nombre">Nombre completo</label>
+          <input id="q-nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name">
+          <span class="err" data-err="nombre" hidden></span>
+        </div>
+        <div class="field">
+          <label for="q-email">Correo electrónico</label>
+          <input id="q-email" name="email" type="email" placeholder="nombre@empresa.com" autocomplete="email">
+          <span class="err" data-err="email" hidden></span>
+        </div>
+        <div class="field two">
+          <div class="col">
+            <label for="q-potencia">Potencia requerida</label>
+            <select id="q-potencia" name="potencia">
+              <option value="">Selecciona…</option>
+              <option>10 kW</option><option>50 kW</option><option>250 kW</option>
+              <option>500 kW</option><option>1000 kW</option><option>2500 kW</option>
+              <option>No estoy seguro</option>
+            </select>
+            <span class="err" data-err="potencia" hidden></span>
+          </div>
+          <div class="col">
+            <label for="q-industria">Industria</label>
+            <select id="q-industria" name="industria">
+              <option value="">Selecciona…</option>
+              <option>Minería</option><option>Hotelería</option><option>Data Center</option>
+              <option>Construcción</option><option>Hospital</option><option>Manufactura</option>
+              <option>Otra</option>
+            </select>
+            <span class="err" data-err="industria" hidden></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="q-msg">Detalle (opcional)</label>
+          <textarea id="q-msg" name="mensaje" placeholder="Uso continuo o respaldo, ubicación, plazo…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Enviar solicitud
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note">Al enviar aceptas ser contactado por LUNAAN ENERGY. No compartimos tus datos.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO WHATSAPP ===================== -->
+<section class="section section--navy deco" id="contacto">
+  <div class="wrap">
+    <div class="wa-band reveal">
+      <div>
+        <span class="eyebrow">Contacto directo</span>
+        <h2>Habla ahora con un asesor por WhatsApp</h2>
+        <p>+52 564 181 9907 · Lun a Sáb 8:00–19:00 · Respuesta inmediata</p>
+      </div>
+      <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero hablar con un asesor sobre plantas eléctricas." href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Abrir WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__intro">
+        <a href="#top" class="brand">
+          <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M19 4h10v15h15v10H29v15H19V29H4V19h15V4z" fill="#2a4fa8"/>
+            <path d="M26 12l-9 13h6l-3 11 10-14h-6l2-10z" fill="#d4ff00"/>
+          </svg>
+          <span><span class="brand__name">LUNAAN</span><span class="brand__sub">Energy</span></span>
+        </a>
+        <p>Plantas eléctricas de 10 kW a 2500 kW. Ingeniería, instalación y servicio para la industria.</p>
+        <a class="footer__contact" data-wa="Hola LUNAAN ENERGY, quiero más información." href="#">+52 564 181 9907</a>
+        <p style="font-family:var(--ff-mono);font-size:.82rem;margin-top:6px">contacto@lunaanenergy.com</p>
+      </div>
+      <div>
+        <h4>Compañía</h4>
+        <ul><li><a href="#sobre">Sobre Lunaan</a></li><li><a href="#industrias">Industrias</a></li><li><a href="#contacto">Contacto</a></li></ul>
+      </div>
+      <div>
+        <h4>Catálogo</h4>
+        <ul><li><a href="#catalogo">10 kW – 50 kW</a></li><li><a href="#catalogo">250 kW – 500 kW</a></li><li><a href="#catalogo">1000 kW – 2500 kW</a></li></ul>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul><li><a href="#cotizacion">Solicitar cotización</a></li><li><a href="#" data-chat-open>Asistente IA</a></li><li><a href="#">Aviso de privacidad</a></li></ul>
+        <div class="socials" aria-label="Redes sociales">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5.01-4.74.07-.99.05-1.53.21-1.89.35-.47.18-.81.4-1.17.76-.36.36-.58.7-.76 1.17-.14.36-.3.9-.35 1.89C3.01 8.5 3 8.85 3 12s.01 3.5.07 4.74c.05.99.21 1.53.35 1.89.18.47.4.81.76 1.17.36.36.7.58 1.17.76.36.14.9.3 1.89.35 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.99-.05 1.53-.21 1.89-.35.47-.18.81-.4 1.17-.76.36-.36.58-.7.76-1.17.14-.36.3-.9.35-1.89.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-.99-.21-1.53-.35-1.89a3.15 3.15 0 0 0-.76-1.17 3.15 3.15 0 0 0-1.17-.76c-.36-.14-.9-.3-1.89-.35C15.5 4.01 15.15 4 12 4zm0 3.07a4.93 4.93 0 1 1 0 9.86 4.93 4.93 0 0 1 0-9.86zm0 1.8a3.13 3.13 0 1 0 0 6.26 3.13 3.13 0 0 0 0-6.26zm5.15-.87a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.3-.04-1.3-.13-2.47-.13-2.44 0-4.11 1.49-4.11 4.23V9.9H7.7V13h2.72v8z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.5.5-5.5s0-3.6-.5-5.5zM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© <span id="year"></span> LUNAAN ENERGY. Todos los derechos reservados.</span>
+      <span>Vista previa estática · plantas eléctricas 10 kW – 2500 kW</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOTANTES ===================== -->
+<a class="fab fab--wa" data-wa="Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas." href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+</a>
+<button class="fab fab--chat" id="chatToggle" aria-label="Abrir asistente">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2Z"/></svg>
+</button>
+
+<!-- ===================== CHATBOT ===================== -->
+<div class="chat" id="chat" role="dialog" aria-label="Asistente Lunaan">
+  <div class="chat__head">
+    <span class="brand">
+      <svg class="brand__mark" viewBox="0 0 48 48" style="width:28px;height:28px" aria-hidden="true">
+        <path d="M19 4h10v15h15v10H29v15H19V29H4V19h15V4z" fill="#2a4fa8"/>
+        <path d="M26 12l-9 13h6l-3 11 10-14h-6l2-10z" fill="#d4ff00"/>
+      </svg>
+      <span><span class="brand__name">LUNAAN</span><span class="brand__sub">Energy</span></span>
+    </span>
+    <button id="chatClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="chat__tag">Asistente IA · Calificación en 8 pasos</div>
+  <div class="chat__log" id="chatLog"></div>
+  <div class="chat__foot" id="chatFoot"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var WA = "525641819907";
+  function waUrl(text){ return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ---- Enlaces WhatsApp genéricos ---- */
+  document.querySelectorAll("[data-wa]").forEach(function(el){
+    el.setAttribute("href", waUrl(el.getAttribute("data-wa")));
+    el.setAttribute("target","_blank"); el.setAttribute("rel","noopener noreferrer");
+  });
+
+  /* ---- Header scroll + menú móvil ---- */
+  var header = document.getElementById("header");
+  var onScroll = function(){ header.classList.toggle("is-scrolled", window.scrollY > 12); };
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  var burger = document.getElementById("burger");
+  burger.addEventListener("click", function(){
+    var open = header.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.getElementById("mobileNav").addEventListener("click", function(e){
+    if (e.target.tagName === "A"){ header.classList.remove("is-open"); burger.setAttribute("aria-expanded","false"); }
+  });
+
+  /* ---- Reveal on scroll ---- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  /* ---- Datos ---- */
+  var PLANTS = [
+    {power:"10 kW",  title:"Planta Compacta 10 kW",  desc:"Respaldo silencioso para oficinas, comercios y residencias premium. Arranque automático en menos de 10 segundos.", uses:"Comercio · Oficinas · Residencial", specs:[["Voltaje","120/240 V"],["Fases","Monofásica"],["Combustible","Diésel / Gas"],["Cabina","65 dB"]]},
+    {power:"50 kW",  title:"Planta Ligera 50 kW",    desc:"Ideal para clínicas, hoteles boutique y obra en fase inicial. Equilibrio entre potencia y movilidad.", uses:"Hotelería · Salud · Construcción", specs:[["Voltaje","220/380 V"],["Fases","Trifásica"],["Combustible","Diésel"],["Tanque","8 h"]]},
+    {power:"250 kW", title:"Planta Industrial 250 kW",desc:"Continuidad operativa para plantas manufactureras medianas y centros logísticos con cargas variables.", uses:"Manufactura · Logística · Retail", specs:[["Voltaje","220/380/440 V"],["Fases","Trifásica"],["Motor","Turbo diésel"],["Control","AMF digital"]], featured:true},
+    {power:"500 kW", title:"Planta Pesada 500 kW",   desc:"Para hospitales, data centers regionales y procesos industriales que no pueden detenerse.", uses:"Hospital · Data Center · Industria", specs:[["Voltaje","380/440 V"],["Fases","Trifásica"],["Transfer.","ATS incluida"],["Emisiones","Tier 3"]]},
+    {power:"1000 kW",title:"Planta Master 1000 kW",  desc:"Potencia de misión crítica con sincronización en paralelo y monitoreo remoto 24/7.", uses:"Minería · Data Center · Utilities", specs:[["Voltaje","480 V / MT"],["Sincron.","Hasta 8 u."],["Monitoreo","SCADA / IoT"],["Enfriam.","Radiador ref."]]},
+    {power:"2500 kW",title:"Planta Titan 2500 kW",   desc:"Generación primaria para operaciones mineras y campamentos aislados de la red.", uses:"Minería · Oil & Gas · Campamentos", specs:[["Voltaje","Media tensión"],["Formato","Contenedor 40'"],["Redundancia","N+1"],["Servicio","In-situ"]]}
+  ];
+  var ICONS = {
+    mining:'<path d="M3 20h18M6 20l3-8M18 20l-3-8M9 12l6-6M15 6l3-3M9 6 6 3"/>',
+    hotel:'<path d="M4 21V4h10v6h6v11M4 10h10M8 6h2M8 14h2M8 18h2M16 14h1M16 18h1"/>',
+    server:'<rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01M11 7.5h4M11 16.5h4"/>',
+    crane:'<path d="M5 21V6l14-2v3M5 6h14M9 9v4a2 2 0 0 0 2 2h6M15 15v3M13 21h6"/>',
+    hospital:'<rect x="4" y="4" width="16" height="17" rx="1.5"/><path d="M12 8v6M9 11h6M9 18h6"/>',
+    factory:'<path d="M3 21V10l6 4V10l6 4V7l3-3v17H3ZM7 21v-4M12 21v-4M17 21v-4"/>'
+  };
+  var SECTORS = [
+    ["Minería","mining","Generación primaria y de respaldo para operaciones en zonas remotas sin acceso a red eléctrica."],
+    ["Hotelería","hotel","Energía ininterrumpida para resorts y hoteles: climatización, cocinas y experiencia del huésped."],
+    ["Data Center","server","Respaldo de misión crítica con transferencia automática y redundancia N+1 para uptime garantizado."],
+    ["Construcción","crane","Plantas móviles y robustas para obra civil, torres grúa y campamentos durante todo el proyecto."],
+    ["Hospital","hospital","Cumplimiento normativo de continuidad eléctrica para quirófanos, UCI y equipos de soporte vital."],
+    ["Manufactura","factory","Protección de líneas de producción ante cortes: evita mermas, paros y daños a maquinaria."]
+  ];
+  var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  var pg = document.getElementById("plantGrid");
+  PLANTS.forEach(function(p, i){
+    var el = document.createElement("article");
+    el.className = "plant reveal" + (p.featured ? " is-featured" : "");
+    el.style.transitionDelay = (i % 3 * 60) + "ms";
+    el.innerHTML =
+      (p.featured ? '<span class="plant__badge">Más solicitada</span>' : '') +
+      '<p class="plant__power">' + p.power + '</p>' +
+      '<h3>' + p.title + '</h3>' +
+      '<p class="plant__desc">' + p.desc + '</p>' +
+      '<dl class="spec">' + p.specs.map(function(s){ return '<div><dt>' + s[0] + '</dt><dd>' + s[1] + '</dd></div>'; }).join('') + '</dl>' +
+      '<p class="plant__uses">' + p.uses + '</p>' +
+      '<a class="plant__link" target="_blank" rel="noopener noreferrer" href="' +
+        waUrl("Hola LUNAAN ENERGY, me interesa la planta de " + p.power + " (" + p.title + "). ¿Me comparten cotización?") +
+        '">Cotizar esta planta ' + arrow + '</a>';
+    pg.appendChild(el); io.observe(el);
+  });
+
+  var sg = document.getElementById("sectorGrid");
+  SECTORS.forEach(function(s, i){
+    var el = document.createElement("article");
+    el.className = "sector reveal";
+    el.style.transitionDelay = (i % 3 * 60) + "ms";
+    el.innerHTML =
+      '<span class="sector__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + ICONS[s[1]] + '</svg></span>' +
+      '<h3>' + s[0] + '</h3><p>' + s[2] + '</p><div class="bar"></div>';
+    sg.appendChild(el); io.observe(el);
+  });
+
+  /* ---- Formulario de cotización ---- */
+  var form = document.getElementById("quoteForm");
+  var body = document.getElementById("formBody");
+  function setErr(name, msg){
+    var input = form.querySelector('[name="' + name + '"]');
+    var span = form.querySelector('[data-err="' + name + '"]');
+    if (msg){ input.classList.add("invalid"); span.textContent = msg; span.hidden = false; }
+    else { input.classList.remove("invalid"); span.hidden = true; }
+  }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var f = {
+      nombre: form.nombre.value.trim(),
+      email: form.email.value.trim(),
+      potencia: form.potencia.value,
+      industria: form.industria.value,
+      mensaje: form.mensaje.value.trim()
+    };
+    var ok = true;
+    if (!f.nombre){ setErr("nombre","Ingresa tu nombre"); ok = false; } else setErr("nombre");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){ setErr("email","Correo no válido"); ok = false; } else setErr("email");
+    if (!f.potencia){ setErr("potencia","Selecciona una potencia"); ok = false; } else setErr("potencia");
+    if (!f.industria){ setErr("industria","Selecciona una industria"); ok = false; } else setErr("industria");
+    if (!ok) return;
+
+    var msg = "Solicitud de cotización — LUNAAN ENERGY\n\n" +
+      "Nombre: " + f.nombre + "\nEmail: " + f.email + "\nPotencia: " + f.potencia +
+      "\nIndustria: " + f.industria + (f.mensaje ? "\nDetalle: " + f.mensaje : "");
+    window.open(waUrl(msg), "_blank", "noopener,noreferrer");
+
+    body.innerHTML =
+      '<div class="form-ok">' +
+        '<span class="tick"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></span>' +
+        '<h3>¡Gracias, ' + f.nombre.split(" ")[0] + '!</h3>' +
+        '<p>Recibimos tu solicitud para una planta de ' + f.potencia + ' en el sector ' + f.industria +
+        '. Un asesor te contactará en breve. Si se abrió WhatsApp, puedes enviar el mensaje ya redactado.</p>' +
+        '<div class="row">' +
+          '<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="' + waUrl(msg) + '">Abrir WhatsApp</a>' +
+          '<button type="button" class="btn btn-outline" id="formReset">Nueva cotización</button>' +
+        '</div>' +
+      '</div>';
+    document.getElementById("formReset").addEventListener("click", function(){ location.reload(); });
+  });
+
+  /* ---- Chatbot: 8 preguntas de calificación ---- */
+  var QUESTIONS = [
+    {id:"nombre",  text:"¡Hola! Soy Luna, la asistente de LUNAAN ENERGY. ¿Con quién tengo el gusto?", input:true, ph:"Tu nombre"},
+    {id:"empresa", text:"Un placer, {n}. ¿Para qué empresa u organización buscas la planta?", input:true, ph:"Nombre de la empresa"},
+    {id:"industria", text:"¿A qué sector pertenece?", opts:["Minería","Hotelería","Data Center","Construcción","Hospital","Manufactura","Otro"]},
+    {id:"potencia", text:"¿Qué rango de potencia necesitas aproximadamente?", opts:["10–50 kW","50–250 kW","250–500 kW","500–1000 kW","1000–2500 kW","Más de 2500 kW","No estoy seguro"]},
+    {id:"uso", text:"¿El uso será como energía principal (continua) o de respaldo (emergencia)?", opts:["Principal / continua","Respaldo / emergencia","Ambos"]},
+    {id:"plazo", text:"¿En qué plazo necesitas tenerla operando?", opts:["Inmediato (0–1 mes)","1–3 meses","3–6 meses","Solo estoy cotizando"]},
+    {id:"modalidad", text:"¿Qué modalidad te interesa?", opts:["Compra","Renta","Renta con opción a compra","Aún no lo sé"]},
+    {id:"contacto", text:"Por último, ¿a qué correo o teléfono te enviamos la propuesta?", input:true, ph:"correo@empresa.com / teléfono"}
+  ];
+  var chat = document.getElementById("chat");
+  var log = document.getElementById("chatLog");
+  var foot = document.getElementById("chatFoot");
+  var step = 0, answers = {}, started = false;
+
+  function firstName(){ return (answers.nombre || "").split(" ")[0] || ""; }
+  function addMsg(who, text){
+    var d = document.createElement("div");
+    d.className = "msg " + who;
+    d.textContent = text;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+  }
+  function renderFoot(){
+    var q = QUESTIONS[step];
+    foot.innerHTML = "";
+    if (!q){ renderDone(); return; }
+    if (q.opts){
+      var box = document.createElement("div");
+      box.className = "chat__opts";
+      q.opts.forEach(function(o){
+        var b = document.createElement("button");
+        b.type = "button"; b.textContent = o;
+        b.addEventListener("click", function(){ answer(o); });
+        box.appendChild(b);
+      });
+      foot.appendChild(box);
+    } else {
+      var f = document.createElement("form");
+      f.className = "chat__form";
+      f.innerHTML = '<input type="text" placeholder="' + q.ph + '" aria-label="Respuesta">' +
+        '<button type="submit" disabled aria-label="Enviar"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>';
+      var inp = f.querySelector("input"), btn = f.querySelector("button");
+      inp.addEventListener("input", function(){ btn.disabled = !inp.value.trim(); });
+      f.addEventListener("submit", function(e){ e.preventDefault(); if (inp.value.trim()) answer(inp.value.trim()); });
+      foot.appendChild(f);
+      setTimeout(function(){ inp.focus(); }, 40);
+    }
+    var p = document.createElement("p");
+    p.className = "chat__progress";
+    p.textContent = "Paso " + Math.min(step + 1, QUESTIONS.length) + " de " + QUESTIONS.length;
+    foot.appendChild(p);
+  }
+  function renderDone(){
+    foot.innerHTML = "";
+    var wrap = document.createElement("div");
+    wrap.className = "chat__cta";
+    var summary =
+      "Lead calificado — Chat LUNAAN ENERGY\n\n" +
+      "Nombre: " + (answers.nombre || "-") + "\n" +
+      "Empresa: " + (answers.empresa || "-") + "\n" +
+      "Industria: " + (answers.industria || "-") + "\n" +
+      "Potencia: " + (answers.potencia || "-") + "\n" +
+      "Uso: " + (answers.uso || "-") + "\n" +
+      "Plazo: " + (answers.plazo || "-") + "\n" +
+      "Modalidad: " + (answers.modalidad || "-") + "\n" +
+      "Contacto: " + (answers.contacto || "-");
+    var a = document.createElement("a");
+    a.className = "btn btn-primary";
+    a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.href = waUrl(summary);
+    a.textContent = "Enviar resumen por WhatsApp";
+    var r = document.createElement("button");
+    r.type = "button"; r.className = "reset"; r.textContent = "Reiniciar";
+    r.addEventListener("click", reset);
+    wrap.appendChild(a); wrap.appendChild(r);
+    foot.appendChild(wrap);
+  }
+  function answer(val){
+    answers[QUESTIONS[step].id] = val;
+    addMsg("user", val);
+    step++;
+    var next = QUESTIONS[step];
+    setTimeout(function(){
+      if (next) addMsg("bot", next.text.replace("{n}", firstName()));
+      else addMsg("bot", "¡Gracias, " + firstName() + "! Con esta información un asesor de LUNAAN ENERGY preparará tu propuesta. Envíanos el resumen por WhatsApp:");
+      renderFoot();
+    }, 320);
+  }
+  function reset(){
+    step = 0; answers = {}; log.innerHTML = "";
+    addMsg("bot", QUESTIONS[0].text);
+    renderFoot();
+  }
+  function openChat(){
+    chat.classList.add("is-open");
+    if (!started){ started = true; addMsg("bot", QUESTIONS[0].text); renderFoot(); }
+  }
+  document.getElementById("chatToggle").addEventListener("click", function(){
+    chat.classList.contains("is-open") ? chat.classList.remove("is-open") : openChat();
+  });
+  document.getElementById("chatClose").addEventListener("click", function(){ chat.classList.remove("is-open"); });
+  document.querySelectorAll("[data-chat-open]").forEach(function(el){
+    el.addEventListener("click", function(e){ e.preventDefault(); openChat(); });
+  });
+})();
+</script>
+</body>
+</html>

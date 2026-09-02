@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #1a3a8a;
+  --lima: #d4ff00;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  @apply bg-white text-navy-900 antialiased;
+}
+
+@layer components {
+  .container-lun {
+    @apply mx-auto w-full max-w-[1200px] px-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-lima px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy-900 transition hover:bg-lima-600 hover:shadow-lg hover:shadow-lima/30;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-700 px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy-700 transition hover:bg-navy-700 hover:text-white;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/70 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-white hover:text-navy-900;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-sky;
+  }
+
+  .section-title {
+    @apply text-3xl font-extrabold leading-tight text-navy-900 sm:text-4xl md:text-[2.75rem];
+  }
+}
+
+/* Diagonal decorative lines */
+.diagonal-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.diagonal-lines span {
+  position: absolute;
+  height: 2px;
+  width: 160%;
+  left: -30%;
+  transform-origin: center;
+}
