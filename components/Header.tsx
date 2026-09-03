@@ -8,6 +8,7 @@ import { COMPANY, waLink } from "@/lib/config";
 const NAV = [
   { label: "Sobre Lunaan", href: "#sobre" },
   { label: "Catálogo", href: "#catalogo" },
+  { label: "Equipos especiales", href: "#equipos" },
   { label: "Industrias", href: "#industrias" },
   { label: "Cotización", href: "#cotizacion" },
   { label: "Contacto", href: "#contacto" },
@@ -35,12 +36,12 @@ export default function Header() {
           <Logo />
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {NAV.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-semibold text-navy-900/80 transition hover:text-navy-700"
+              className="whitespace-nowrap text-sm font-semibold text-navy-900/80 transition hover:text-navy-700"
             >
               {item.label}
             </a>

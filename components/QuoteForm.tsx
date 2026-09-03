@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowIcon, CheckIcon, WhatsAppIcon } from "./icons";
-import { PLANTS, INDUSTRIES } from "@/lib/data";
+import { POWER_OPTIONS, INDUSTRIES } from "@/lib/data";
 import { waLink } from "@/lib/config";
 
 type FormState = {
@@ -142,12 +142,11 @@ export default function QuoteForm() {
             onChange={(e) => update("potencia", e.target.value)}
           >
             <option value="">Selecciona…</option>
-            {PLANTS.map((p) => (
-              <option key={p.slug} value={p.power}>
-                {p.power}
+            {POWER_OPTIONS.map((p) => (
+              <option key={p} value={p}>
+                {p}
               </option>
             ))}
-            <option value="No estoy seguro">No estoy seguro</option>
           </select>
           {errors.potencia && (
             <p className="mt-1 text-xs text-red-500">{errors.potencia}</p>

@@ -1,4 +1,3 @@
-import DiagonalLines from "./DiagonalLines";
 import { ArrowIcon, WhatsAppIcon, BoltIcon } from "./icons";
 import { waLink } from "@/lib/config";
 
@@ -14,7 +13,8 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden bg-navy-900 pb-20 pt-[128px] text-white sm:pt-[150px]"
     >
-      <DiagonalLines variant="onDark" angle={-16} />
+      <span aria-hidden className="hero-deco hero-deco--left" />
+      <span aria-hidden className="hero-deco hero-deco--right" />
       <div
         className="pointer-events-none absolute -right-32 top-10 h-[420px] w-[420px] rounded-full opacity-30 blur-3xl"
         style={{ background: "radial-gradient(circle,#4a7fd6,transparent 70%)" }}

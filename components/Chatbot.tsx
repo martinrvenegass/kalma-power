@@ -24,8 +24,8 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "potencia",
-    text: "¿Qué rango de potencia necesitas aproximadamente?",
-    options: ["10–50 kW", "50–250 kW", "250–500 kW", "500–1000 kW", "1000–2500 kW", "Más de 2500 kW", "No estoy seguro"],
+    text: "¿Qué rango de potencia necesitas? (o indícame la potencia exacta)",
+    options: ["10 – 50 kW", "250 – 500 kW", "1000 – 2500 kW", "Potencia exacta (la indico)", "No estoy seguro"],
   },
   {
     id: "uso",

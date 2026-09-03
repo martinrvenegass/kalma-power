@@ -8,7 +8,7 @@ export default function Contact() {
     <>
       {/* Cotización */}
       <section id="cotizacion" className="relative overflow-hidden bg-white py-24">
-        <DiagonalLines angle={-14} />
+        <DiagonalLines angle={-14} corner="bottom-right" />
         <div className="container-lun relative grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
             <span className="section-eyebrow">Cotización</span>

@@ -66,15 +66,20 @@
   .lead{font-size:1.12rem;color:var(--ink-soft);max-width:56ch;margin-top:18px}
   .section--navy .lead{color:var(--on-navy-soft)}
 
-  /* ============ Líneas decorativas diagonales (navy + verde lima) ============ */
+  /* ============ Líneas decorativas diagonales (navy + verde lima)
+     Segmentos cortos en los márgenes/costados: nunca cruzan el texto ============ */
   .deco::before,.deco::after{content:"";position:absolute;pointer-events:none;transform:rotate(-18deg)}
-  .deco::before{width:150%;height:1.5px;left:-25%;top:11%;background:var(--line-strong)}
-  .deco::after{width:120px;height:3px;left:7%;top:14%;background:var(--lima)}
-  .section--navy.deco::before{background:rgba(238,242,255,.14)}
+  .deco::before{width:230px;height:1.5px;left:-46px;top:38px;background:var(--line-strong)}
+  .deco::after{width:74px;height:3px;left:66px;top:56px;background:var(--lima)}
+  .section--navy.deco::before{background:rgba(238,242,255,.16)}
   .deco-b::before,.deco-b::after{content:"";position:absolute;pointer-events:none;transform:rotate(-18deg)}
-  .deco-b::before{width:150%;height:1.5px;left:-10%;bottom:16%;background:var(--line-strong)}
-  .deco-b::after{width:90px;height:3px;right:9%;bottom:13%;background:var(--lima)}
-  .section--navy.deco-b::before{background:rgba(238,242,255,.14)}
+  .deco-b::before{width:230px;height:1.5px;right:-46px;bottom:38px;background:var(--line-strong)}
+  .deco-b::after{width:74px;height:3px;right:66px;bottom:24px;background:var(--lima)}
+  .section--navy.deco-b::before{background:rgba(238,242,255,.16)}
+  @media (max-width:620px){
+    .deco::after,.deco-b::after{width:52px}
+    .deco::before,.deco-b::before{width:150px}
+  }
 
   /* ============ Botones ============ */
   .btn{
@@ -117,6 +122,14 @@
   .hero{position:relative;background:var(--navy-deep);color:var(--on-navy);padding:150px 0 96px;overflow:hidden}
   .hero__glow{position:absolute;width:520px;height:520px;right:-140px;top:-40px;border-radius:50%;
     background:radial-gradient(circle,rgba(74,127,214,.55),transparent 70%);filter:blur(10px);pointer-events:none}
+  /* Líneas decorativas SOLO en los costados del hero (no cruzan el texto) */
+  .hero__deco{position:absolute;top:0;bottom:0;width:clamp(34px,6vw,110px);pointer-events:none;
+    background:repeating-linear-gradient(115deg,transparent 0 20px,rgba(238,242,255,.08) 20px 21px)}
+  .hero__deco::after{content:"";position:absolute;top:-15%;height:130%;width:2px;background:var(--lima);opacity:.7;transform:rotate(25deg)}
+  .hero__deco--l{left:0;-webkit-mask-image:linear-gradient(to right,#000,transparent 72%);mask-image:linear-gradient(to right,#000,transparent 72%)}
+  .hero__deco--l::after{left:30%}
+  .hero__deco--r{right:0;-webkit-mask-image:linear-gradient(to left,#000,transparent 72%);mask-image:linear-gradient(to left,#000,transparent 72%)}
+  .hero__deco--r::after{right:30%}
   .hero__grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .hero h1{font-size:clamp(2.6rem,1.6rem + 3.6vw,4rem);font-weight:800}
   .hero h1 em{font-style:normal;color:var(--lima)}
@@ -168,6 +181,44 @@
   .plant__link{margin-top:20px;display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.82rem;color:var(--lima)}
   .plant__link svg{width:1em;height:1em;transition:transform .15s ease}
   .plant:hover .plant__link svg{transform:translateX(3px)}
+  .plant__fuel{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(238,242,255,.5);margin-left:10px;font-family:var(--ff-body);font-weight:600}
+  .spec{grid-template-columns:1fr 1fr}
+  .spec dd{white-space:normal}
+
+  /* Rangos de potencia */
+  .range + .range{margin-top:56px}
+  .range__head{display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:flex-end;
+    border-bottom:1px solid rgba(238,242,255,.14);padding-bottom:20px}
+  .range__label{font-family:var(--ff-mono);font-size:clamp(1.6rem,1rem + 2vw,2.2rem);font-weight:600;color:var(--lima);font-variant-numeric:tabular-nums}
+  .range__name{font-weight:700;margin-top:4px}
+  .range__tag{font-size:.9rem;color:var(--on-navy-soft);max-width:46ch;margin-top:4px}
+  .range__engines .lbl,.range__powers .lbl{display:block;font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(238,242,255,.5);margin-bottom:8px}
+  .range__chips{display:flex;flex-wrap:wrap;gap:8px}
+  .range__chips span{border:1px solid rgba(238,242,255,.22);border-radius:999px;padding:5px 12px;font-size:.74rem;font-weight:600}
+  .range__powers{margin-top:16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+  .range__powers b{font-family:var(--ff-mono);font-weight:600;color:var(--on-navy);font-variant-numeric:tabular-nums}
+  .range__powers i{font-style:normal;color:rgba(238,242,255,.4)}
+  .range__powers em{font-style:normal;color:var(--on-navy-soft);font-size:.85rem}
+  .range__models{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .catalog-note{margin-top:52px;border:1px solid rgba(238,242,255,.14);border-radius:var(--radius);background:rgba(255,255,255,.05);
+    padding:26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+  .catalog-note p{font-size:.9rem;color:var(--on-navy-soft);max-width:52ch}
+
+  /* Equipos especiales */
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+  .spcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--white);
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .spcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(26,58,138,.28)}
+  .spcard__ico{width:46px;height:46px;border-radius:12px;background:var(--navy-deep);color:var(--lima);display:flex;align-items:center;justify-content:center}
+  .spcard__ico svg{width:24px;height:24px}
+  .spcard h3{margin-top:14px;font-size:.98rem}
+  .spcard ul{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .spcard li{display:flex;gap:9px;font-size:.83rem;line-height:1.42;color:var(--ink-soft)}
+  .spcard li::before{content:"";flex:none;width:6px;height:6px;margin-top:6px;border-radius:50%;background:var(--lima)}
+  .special__closing{margin-top:44px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+    border:1px solid var(--line);border-radius:20px;background:var(--ice);padding:30px}
+  .special__closing h3{font-size:1.2rem}
+  .special__closing p{margin-top:8px;font-size:.9rem;color:var(--ink-soft);max-width:60ch}
 
   /* Industrias */
   .sector{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);
@@ -268,6 +319,14 @@
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
   /* ============ Responsive ============ */
+  @media (max-width:1100px){
+    .grid-4{grid-template-columns:1fr 1fr}
+    .range__models{grid-template-columns:1fr}
+  }
+  @media (max-width:1024px){
+    .nav a{font-size:.82rem}
+    .nav{gap:20px}
+  }
   @media (max-width:960px){
     .nav,.header__cta{display:none}
     .burger{display:flex}
@@ -275,10 +334,12 @@
     .hero__grid,.about__grid,.quote__grid{grid-template-columns:1fr;gap:44px}
     .grid-3{grid-template-columns:1fr 1fr}
     .footer__grid{grid-template-columns:1fr 1fr}
+    .hero__deco::after{display:none}
+    .hero__deco{width:44px}
   }
   @media (max-width:620px){
     .section{padding:76px 0}
-    .grid-3,.diff,.field.two{grid-template-columns:1fr}
+    .grid-3,.grid-4,.diff,.field.two,.spec,.range__models{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(3,1fr);gap:12px}
     .footer__grid{grid-template-columns:1fr}
     .wa-band{padding:26px}
@@ -304,6 +365,7 @@
     <nav class="nav">
       <a href="#sobre">Sobre Lunaan</a>
       <a href="#catalogo">Catálogo</a>
+      <a href="#equipos">Equipos especiales</a>
       <a href="#industrias">Industrias</a>
       <a href="#cotizacion">Cotización</a>
       <a href="#contacto">Contacto</a>
@@ -321,6 +383,7 @@
   <div class="wrap mobile-nav" id="mobileNav">
     <a href="#sobre">Sobre Lunaan</a>
     <a href="#catalogo">Catálogo</a>
+    <a href="#equipos">Equipos especiales</a>
     <a href="#industrias">Industrias</a>
     <a href="#cotizacion">Cotización</a>
     <a href="#contacto">Contacto</a>
@@ -331,6 +394,8 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
   <span class="hero__glow" aria-hidden="true"></span>
+  <span class="hero__deco hero__deco--l" aria-hidden="true"></span>
+  <span class="hero__deco hero__deco--r" aria-hidden="true"></span>
   <div class="wrap hero__grid">
     <div class="reveal">
       <span class="eyebrow">
@@ -393,14 +458,37 @@
 <!-- ===================== CATÁLOGO ===================== -->
 <section class="section section--navy deco" id="catalogo">
   <div class="wrap">
-    <div class="reveal" style="max-width:620px">
+    <div class="reveal" style="max-width:660px">
       <span class="eyebrow">Catálogo</span>
-      <h2 class="title">Seis rangos de potencia para cada operación</h2>
-      <p class="lead">Cada planta se entrega calibrada, con tablero de transferencia y plan de mantenimiento. ¿No sabes qué capacidad necesitas? Te ayudamos a dimensionarla.</p>
+      <h2 class="title">Rangos de potencia para cada operación</h2>
+      <p class="lead">Potencias desde 10 kW hasta 2500 kW en motores Cummins, Baudouin, Weichai y FAWDE. Cada planta se entrega calibrada, con tablero de transferencia y plan de mantenimiento. ¿No sabes qué capacidad necesitas? Te ayudamos a dimensionarla.</p>
     </div>
-    <div class="grid-3" id="plantGrid"></div>
-    <div style="margin-top:44px">
+    <div id="rangeList" style="margin-top:56px"></div>
+    <div class="catalog-note">
+      <p>Las plantas se configuran a la medida: voltaje, frecuencia, autonomía, caseta y auxiliares según tu instalación. Indícanos la potencia exacta o el rango.</p>
       <a class="btn btn-primary" href="#cotizacion">Comparar y cotizar en línea
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EQUIPOS ESPECIALES ===================== -->
+<section class="section deco" id="equipos">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px">
+      <span class="eyebrow">Equipos especiales</span>
+      <h2 class="title">Equipos especiales y soluciones a la medida</h2>
+      <p class="lead">Generadores diseñados para proyectos que requieren mayor autonomía, operación en paralelo, condiciones ambientales especiales o configuraciones personalizadas.</p>
+    </div>
+    <div class="grid-4" id="specialGrid"></div>
+    <div class="special__closing reveal">
+      <div>
+        <h3>¿Tu proyecto requiere algo diferente?</h3>
+        <p>Diseñamos la configuración del generador, sistema eléctrico, autonomía, caseta y auxiliares de acuerdo con las condiciones y requerimientos específicos de tu instalación.</p>
+      </div>
+      <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?" href="#">
+        Consultar mi proyecto
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -450,8 +538,10 @@
             <label for="q-potencia">Potencia requerida</label>
             <select id="q-potencia" name="potencia">
               <option value="">Selecciona…</option>
-              <option>10 kW</option><option>50 kW</option><option>250 kW</option>
-              <option>500 kW</option><option>1000 kW</option><option>2500 kW</option>
+              <option>10 – 50 kW</option>
+              <option>250 – 500 kW</option>
+              <option>1000 – 2500 kW</option>
+              <option>Potencia exacta (la indico)</option>
               <option>No estoy seguro</option>
             </select>
             <span class="err" data-err="potencia" hidden></span>
@@ -519,7 +609,7 @@
       </div>
       <div>
         <h4>Catálogo</h4>
-        <ul><li><a href="#catalogo">10 kW – 50 kW</a></li><li><a href="#catalogo">250 kW – 500 kW</a></li><li><a href="#catalogo">1000 kW – 2500 kW</a></li></ul>
+        <ul><li><a href="#rango-ligera">10 – 50 kW · Línea ligera</a></li><li><a href="#rango-industrial">250 – 500 kW · Línea industrial</a></li><li><a href="#rango-alta-potencia">1000 – 2500 kW · Alta potencia</a></li><li><a href="#equipos">Equipos especiales</a></li></ul>
       </div>
       <div>
         <h4>Recursos</h4>
@@ -600,14 +690,81 @@
   }, {threshold:.12});
   document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
 
-  /* ---- Datos ---- */
-  var PLANTS = [
-    {power:"10 kW",  title:"Planta Compacta 10 kW",  desc:"Respaldo silencioso para oficinas, comercios y residencias premium. Arranque automático en menos de 10 segundos.", uses:"Comercio · Oficinas · Residencial", specs:[["Voltaje","120/240 V"],["Fases","Monofásica"],["Combustible","Diésel / Gas"],["Cabina","65 dB"]]},
-    {power:"50 kW",  title:"Planta Ligera 50 kW",    desc:"Ideal para clínicas, hoteles boutique y obra en fase inicial. Equilibrio entre potencia y movilidad.", uses:"Hotelería · Salud · Construcción", specs:[["Voltaje","220/380 V"],["Fases","Trifásica"],["Combustible","Diésel"],["Tanque","8 h"]]},
-    {power:"250 kW", title:"Planta Industrial 250 kW",desc:"Continuidad operativa para plantas manufactureras medianas y centros logísticos con cargas variables.", uses:"Manufactura · Logística · Retail", specs:[["Voltaje","220/380/440 V"],["Fases","Trifásica"],["Motor","Turbo diésel"],["Control","AMF digital"]], featured:true},
-    {power:"500 kW", title:"Planta Pesada 500 kW",   desc:"Para hospitales, data centers regionales y procesos industriales que no pueden detenerse.", uses:"Hospital · Data Center · Industria", specs:[["Voltaje","380/440 V"],["Fases","Trifásica"],["Transfer.","ATS incluida"],["Emisiones","Tier 3"]]},
-    {power:"1000 kW",title:"Planta Master 1000 kW",  desc:"Potencia de misión crítica con sincronización en paralelo y monitoreo remoto 24/7.", uses:"Minería · Data Center · Utilities", specs:[["Voltaje","480 V / MT"],["Sincron.","Hasta 8 u."],["Monitoreo","SCADA / IoT"],["Enfriam.","Radiador ref."]]},
-    {power:"2500 kW",title:"Planta Titan 2500 kW",   desc:"Generación primaria para operaciones mineras y campamentos aislados de la red.", uses:"Minería · Oil & Gas · Campamentos", specs:[["Voltaje","Media tensión"],["Formato","Contenedor 40'"],["Redundancia","N+1"],["Servicio","In-situ"]]}
+  /* ---- Datos: rangos de potencia ---- */
+  var RANGES = [
+    {
+      id:"ligera", label:"10 – 50 kW", name:"Línea ligera",
+      tag:"Respaldo silencioso para comercio, oficinas, clínicas y obra en fase inicial.",
+      note:"Disponibles monofásicas (127 V) o trifásicas.",
+      engines:["Baudouin","Weichai","FAWDE","Cummins"],
+      powers:["10 kW","15 kW","20 kW","25 kW","30 kW","40 kW","50 kW"],
+      models:[
+        {power:"10 kW", fuel:"Diésel", title:"Planta Compacta 10 kW",
+         desc:"Planta compacta para respaldo silencioso en comercios, oficinas y residencias. Disponible monofásica o trifásica.",
+         sectors:"Comercio · Oficinas · Residencial",
+         specs:[["Potencia","10 kW · ISO 8528"],["Voltaje","127 V monofásico / 220–480 V trifásico"],["Frecuencia","60 Hz"],["Fases","Monofásica o trifásica"],["Motor","Weichai / FAWDE"],["Control","Deep Sea Electronics DSE4520"],["Interruptor","2–4 polos, a pie de máquina"],["ATS integrado","Dentro de la caseta"],["Autonomía","8 h a plena carga (ampliable)"],["Caseta","Insonorizada · acero galvanizado"],["Antivibración","Amortiguadores motor–base"],["Incluye","Baterías, cargador y sistema de escape"],["Garantía","1 año o 1200 h de operación"]]},
+        {power:"50 kW", fuel:"Diésel", title:"Planta Ligera 50 kW", featured:true,
+         desc:"Planta diésel de 50 kW, trifásica y reconfigurable, diseñada para respaldo confiable en instalaciones comerciales y de servicios.",
+         sectors:"Hotelería · Salud · Construcción · Comercio",
+         specs:[["Potencia","50 kW · ISO 8528"],["Voltaje","208 / 220 / 440 / 480 V, reconfigurable"],["Frecuencia","60 Hz · Trifásica"],["Fases","Trifásica (monofásica 127 V opcional)"],["Motor","Baudouin / Weichai / FAWDE / Cummins"],["Control","Deep Sea Electronics DSE6120"],["Interruptor","4 polos, a pie de máquina"],["ATS integrado","10–200 kW, dentro de la caseta"],["Autonomía","8 h a plena carga (ampliable)"],["Caseta","Insonorizada · acero galvanizado"],["Herrajes","Acero galvanizado"],["Antivibración","Amortiguadores motor–base"],["Incluye","Baterías, cargador y sistema de escape"],["Garantía","1 año o 1200 h de operación"]]}
+      ]
+    },
+    {
+      id:"industrial", label:"250 – 500 kW", name:"Línea industrial",
+      tag:"Continuidad operativa para industria, logística, hospitales y data centers regionales.",
+      note:"Todas trifásicas y reconfigurables. Preparadas para operación en paralelo.",
+      engines:["Cummins","Baudouin","Weichai"],
+      powers:["250 kW","300 kW","350 kW","400 kW","450 kW","500 kW"],
+      models:[
+        {power:"250 kW", fuel:"Diésel", title:"Planta Industrial 250 kW",
+         desc:"Planta diésel de 250 kW, trifásica y reconfigurable, para continuidad operativa en industria, logística y comercio de alto consumo.",
+         sectors:"Manufactura · Logística · Retail",
+         specs:[["Potencia","250 kW · ISO 8528"],["Voltaje","208 / 220 / 440 / 480 V, reconfigurable"],["Frecuencia","60 Hz · Trifásica"],["Motor","Cummins / Baudouin / Weichai"],["Control","Deep Sea Electronics DSE7320 (AMF)"],["Interruptor","3–4 polos, a pie de máquina"],["Transferencia","ATS integrado 10–200 kW o tablero remoto"],["Autonomía","8 h a plena carga · tanque ampliable"],["Caseta","Insonorizada · acero galvanizado"],["Antivibración","Amortiguadores motor–base"],["Incluye","Baterías, cargador, escape y precalentador"],["Emisiones","Compatible Tier 3"],["Garantía","1 año o 1200 h de operación"]]},
+        {power:"500 kW", fuel:"Diésel", title:"Planta Pesada 500 kW",
+         desc:"Planta diésel de 500 kW para hospitales, data centers y procesos críticos que no pueden detenerse. Preparada para operación en paralelo.",
+         sectors:"Hospital · Data Center · Industria",
+         specs:[["Potencia","500 kW · ISO 8528"],["Voltaje","220 / 440 / 480 V, reconfigurable"],["Frecuencia","60 Hz · Trifásica"],["Motor","Cummins / Baudouin"],["Control","Deep Sea Electronics DSE8610 (sincronización)"],["Interruptor","3P / 4P motorizado"],["Transferencia","ATS o tablero de sincronización / paralelo"],["Autonomía","8 h · tanque de gran capacidad opcional"],["Caseta","Insonorizada · acero galvanizado o contenedor"],["Antivibración","Amortiguadores motor–base"],["Incluye","Baterías, cargador, precalentador y escape"],["Emisiones","Tier 3 / Stage IIIA"],["Garantía","1 año o 1200 h de operación"]]}
+      ]
+    },
+    {
+      id:"alta-potencia", label:"1000 – 2500 kW", name:"Línea de alta potencia",
+      tag:"Misión crítica y generación primaria para minería, oil & gas, utilities y grandes data centers.",
+      note:"Sincronización multi-unidad, load sharing y formato en contenedor.",
+      engines:["Cummins","Baudouin"],
+      powers:["1000 kW","1250 kW","1500 kW","1750 kW","2000 kW","2250 kW","2500 kW"],
+      models:[
+        {power:"1000 kW", fuel:"Diésel", title:"Planta Master 1000 kW",
+         desc:"Potencia de misión crítica de 1000 kW con sincronización en paralelo, load sharing y monitoreo remoto 24/7.",
+         sectors:"Minería · Data Center · Utilities",
+         specs:[["Potencia","1000 kW · ISO 8528"],["Voltaje","480 V / media tensión"],["Frecuencia","60 Hz · Trifásica"],["Motor","Cummins / Baudouin"],["Control","DSE8610 MkII · sincronía y load sharing"],["Sincronización","Hasta 8–32 unidades en paralelo"],["Transferencia","Abierta, cerrada o transición programada"],["Autonomía","8 h · tanque remoto de gran capacidad"],["Formato","Contenedor 20' / 40' o instalación interior"],["Enfriamiento","Radiador reforzado / remoto"],["Monitoreo","SCADA / Modbus / Ethernet"],["Emisiones","Tier 3 / Stage IIIA"],["Garantía","1 año o 1200 h de operación"]]},
+        {power:"2500 kW", fuel:"Diésel", title:"Planta Titán 2500 kW",
+         desc:"Generación primaria de 2500 kW para minería, oil & gas y campamentos aislados de la red. Configuración N+1 y servicio in situ.",
+         sectors:"Minería · Oil & Gas · Campamentos",
+         specs:[["Potencia","2500 kW · ISO 8528"],["Voltaje","Media tensión (4.16 / 13.8 kV) o 480 V"],["Frecuencia","60 Hz · Trifásica"],["Motor","Cummins / Baudouin"],["Control","DSE8610 MkII / DSEE400 · sincronía"],["Sincronización","Planta multi-unidad, load sharing y red"],["Formato","Contenedor 40' · walk-in"],["Autonomía","Tanques de gran capacidad y transferencia automática"],["Enfriamiento","Radiador remoto / alta temperatura"],["Redundancia","N+1 configurable"],["Monitoreo","SCADA / BMS · alarmas remotas"],["Servicio","Mantenimiento in situ"],["Garantía","1 año o 1200 h de operación"]]}
+      ]
+    }
+  ];
+
+  /* ---- Datos: equipos especiales ---- */
+  var SP_ICONS = {
+    sync:'<path d="M4 9a8 8 0 0 1 13-3l3 3M20 5v4h-4M20 15a8 8 0 0 1-13 3l-3-3M4 19v-4h4"/>',
+    fuel:'<path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M14 9h3a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3M7 8h6"/>',
+    enclosure:'<path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6M7 10h.01M17 10h.01"/>',
+    thermal:'<path d="M6 4v10a4 4 0 1 0 4 0V4a2 2 0 0 0-4 0ZM8 14V8M14 5c2 0 2 2 4 2M14 10c2 0 2 2 4 2M14 15c2 0 2 2 4 2"/>',
+    finish:'<path d="M12 3a9 9 0 0 0 0 18c1.66 0 2-1.34 2-2s-.34-1-.34-1.5c0-.83.67-1.5 1.5-1.5H17a4 4 0 0 0 4-4c0-4.42-4.03-8-9-8Z"/><path d="M7.5 11h.01M10.5 7.5h.01M15 7.5h.01"/>',
+    electrical:'<path d="M13 2 4.5 13.5H11l-2 8.5 8.5-12H11l2-8Z"/>',
+    control:'<rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4M7 8h4M7 11h6M15 8h2"/>',
+    engineering:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.5 1.5 0 0 0 2 2l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5Z"/>'
+  };
+  var SPECIAL = [
+    {icon:"sync", title:"Sincronía y operación en paralelo", items:["Sistemas de sincronía abierta o cerrada","Operación de múltiples generadores en paralelo","Load sharing para distribución automática de carga","Sincronización con red eléctrica","Transferencia abierta, cerrada o transición programada","Control y monitoreo centralizado","Secuencia automática de arranque y paro"]},
+    {icon:"fuel", title:"Mayor autonomía de combustible", items:["Tanques de combustible de más de 8 horas de respaldo","Tanques de gran capacidad integrados o remotos","Tanques auxiliares y transferencia automática de combustible","Indicador y monitoreo de nivel","Configuraciones especiales para proyectos de larga autonomía"]},
+    {icon:"enclosure", title:"Casetas especiales", items:["Casetas insonorizadas en acero galvanizado, acero al carbón o aluminio","Dimensiones especiales de acuerdo con el proyecto","Puertas y accesos de mantenimiento personalizados","Tratamientos anticorrosivos para ambientes agresivos","Preparación para instalación interior o exterior"]},
+    {icon:"thermal", title:"Ventilación y manejo térmico", items:["Sistemas de ventilación calculados para cada instalación","Louvers motorizados","Ventiladores de extracción","Atenuadores acústicos","Sistemas para altas temperaturas, altitud o espacios confinados","Configuraciones para cuartos de máquinas o contenedores"]},
+    {icon:"finish", title:"Acabados y protección", items:["Pintura especial según requerimiento del proyecto","Colores y acabados personalizados","Sistemas anticorrosivos para ambientes marinos, industriales o de alta humedad","Recubrimientos especiales para condiciones ambientales exigentes"]},
+    {icon:"electrical", title:"Configuraciones eléctricas especiales", items:["Voltajes y frecuencias configurables","Interruptores principales de diferentes capacidades","ATS integrado o remoto","Tableros de transferencia y distribución","Bypass de mantenimiento","Protecciones eléctricas y medición personalizada","Preparación para conexión a sistemas críticos"]},
+    {icon:"control", title:"Control, comunicación y monitoreo", items:["Controladores Deep Sea Electronics u otras plataformas requeridas","Monitoreo remoto","Comunicación Modbus / Ethernet","Integración con BMS, SCADA o sistemas de gestión del edificio","Alarmas y señalización remota","Registro de eventos y parámetros de operación"]},
+    {icon:"engineering", title:"Ingeniería especial", items:["Diseño de sistemas de escape y silenciadores especiales","Precalentadores de motor y calentadores de anticongelante","Sistemas de arranque redundantes","Radiadores remotos","Bases y estructuras especiales","Ingeniería de instalación y adecuación al sitio","Soluciones para altitud, temperatura, humedad y condiciones ambientales particulares"]}
   ];
   var ICONS = {
     mining:'<path d="M3 20h18M6 20l3-8M18 20l-3-8M9 12l6-6M15 6l3-3M9 6 6 3"/>',
@@ -627,22 +784,56 @@
   ];
   var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
-  var pg = document.getElementById("plantGrid");
-  PLANTS.forEach(function(p, i){
-    var el = document.createElement("article");
-    el.className = "plant reveal" + (p.featured ? " is-featured" : "");
-    el.style.transitionDelay = (i % 3 * 60) + "ms";
-    el.innerHTML =
-      (p.featured ? '<span class="plant__badge">Más solicitada</span>' : '') +
-      '<p class="plant__power">' + p.power + '</p>' +
-      '<h3>' + p.title + '</h3>' +
-      '<p class="plant__desc">' + p.desc + '</p>' +
-      '<dl class="spec">' + p.specs.map(function(s){ return '<div><dt>' + s[0] + '</dt><dd>' + s[1] + '</dd></div>'; }).join('') + '</dl>' +
-      '<p class="plant__uses">' + p.uses + '</p>' +
+  function modelCard(m){
+    return '<article class="plant reveal' + (m.featured ? ' is-featured' : '') + '">' +
+      (m.featured ? '<span class="plant__badge">Más solicitada</span>' : '') +
+      '<p class="plant__power">' + m.power + '<span class="plant__fuel">' + m.fuel + '</span></p>' +
+      '<h3>' + m.title + '</h3>' +
+      '<p class="plant__desc">' + m.desc + '</p>' +
+      '<dl class="spec">' + m.specs.map(function(s){ return '<div><dt>' + s[0] + '</dt><dd>' + s[1] + '</dd></div>'; }).join('') + '</dl>' +
+      '<p class="plant__uses">' + m.sectors + '</p>' +
       '<a class="plant__link" target="_blank" rel="noopener noreferrer" href="' +
-        waUrl("Hola LUNAAN ENERGY, me interesa la planta de " + p.power + " (" + p.title + "). ¿Me comparten cotización?") +
-        '">Cotizar esta planta ' + arrow + '</a>';
-    pg.appendChild(el); io.observe(el);
+        waUrl("Hola LUNAAN ENERGY, me interesa la planta de " + m.power + " (" + m.title + "). ¿Me comparten ficha técnica y cotización?") +
+        '">Cotizar esta planta ' + arrow + '</a></article>';
+  }
+
+  var rangeList = document.getElementById("rangeList");
+  RANGES.forEach(function(r){
+    var block = document.createElement("div");
+    block.className = "range";
+    block.id = "rango-" + r.id;
+    block.innerHTML =
+      '<div class="range__head reveal">' +
+        '<div>' +
+          '<p class="range__label">' + r.label + '</p>' +
+          '<p class="range__name">' + r.name + '</p>' +
+          '<p class="range__tag">' + r.tag + '</p>' +
+        '</div>' +
+        '<div class="range__engines">' +
+          '<span class="lbl">Motores disponibles</span>' +
+          '<div class="range__chips">' + r.engines.map(function(e){ return '<span>' + e + '</span>'; }).join('') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="range__powers reveal">' +
+        '<span class="lbl">Potencias</span>' +
+        r.powers.map(function(p){ return '<b>' + p + '</b>'; }).join('<i>·</i>') +
+        '<i>·</i><em>' + r.note + '</em>' +
+      '</div>' +
+      '<div class="range__models">' + r.models.map(modelCard).join('') + '</div>';
+    rangeList.appendChild(block);
+    block.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  });
+
+  var spGrid = document.getElementById("specialGrid");
+  SPECIAL.forEach(function(c, i){
+    var el = document.createElement("article");
+    el.className = "spcard reveal";
+    el.style.transitionDelay = (i % 4 * 60) + "ms";
+    el.innerHTML =
+      '<span class="spcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + SP_ICONS[c.icon] + '</svg></span>' +
+      '<h3>' + c.title + '</h3>' +
+      '<ul>' + c.items.map(function(it){ return '<li>' + it + '</li>'; }).join('') + '</ul>';
+    spGrid.appendChild(el); io.observe(el);
   });
 
   var sg = document.getElementById("sectorGrid");
@@ -705,7 +896,7 @@
     {id:"nombre",  text:"¡Hola! Soy Luna, la asistente de LUNAAN ENERGY. ¿Con quién tengo el gusto?", input:true, ph:"Tu nombre"},
     {id:"empresa", text:"Un placer, {n}. ¿Para qué empresa u organización buscas la planta?", input:true, ph:"Nombre de la empresa"},
     {id:"industria", text:"¿A qué sector pertenece?", opts:["Minería","Hotelería","Data Center","Construcción","Hospital","Manufactura","Otro"]},
-    {id:"potencia", text:"¿Qué rango de potencia necesitas aproximadamente?", opts:["10–50 kW","50–250 kW","250–500 kW","500–1000 kW","1000–2500 kW","Más de 2500 kW","No estoy seguro"]},
+    {id:"potencia", text:"¿Qué rango de potencia necesitas? (o indícame la potencia exacta)", opts:["10 – 50 kW","250 – 500 kW","1000 – 2500 kW","Potencia exacta (la indico)","No estoy seguro"]},
     {id:"uso", text:"¿El uso será como energía principal (continua) o de respaldo (emergencia)?", opts:["Principal / continua","Respaldo / emergencia","Ambos"]},
     {id:"plazo", text:"¿En qué plazo necesitas tenerla operando?", opts:["Inmediato (0–1 mes)","1–3 meses","3–6 meses","Solo estoy cotizando"]},
     {id:"modalidad", text:"¿Qué modalidad te interesa?", opts:["Compra","Renta","Renta con opción a compra","Aún no lo sé"]},

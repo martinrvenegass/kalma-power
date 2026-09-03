@@ -56,3 +56,51 @@ body {
   left: -30%;
   transform-origin: center;
 }
+
+/* Líneas decorativas SOLO en los costados del hero (no cruzan el texto) */
+.hero-deco {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(34px, 6vw, 110px);
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 20px,
+    rgba(238, 242, 255, 0.08) 20px 21px
+  );
+}
+.hero-deco::after {
+  content: "";
+  position: absolute;
+  top: -15%;
+  height: 130%;
+  width: 2px;
+  background: #d4ff00;
+  opacity: 0.7;
+  transform: rotate(25deg);
+}
+.hero-deco--left {
+  left: 0;
+  -webkit-mask-image: linear-gradient(to right, #000, transparent 72%);
+  mask-image: linear-gradient(to right, #000, transparent 72%);
+}
+.hero-deco--left::after {
+  left: 30%;
+}
+.hero-deco--right {
+  right: 0;
+  -webkit-mask-image: linear-gradient(to left, #000, transparent 72%);
+  mask-image: linear-gradient(to left, #000, transparent 72%);
+}
+.hero-deco--right::after {
+  right: 30%;
+}
+@media (max-width: 768px) {
+  .hero-deco {
+    width: 30px;
+  }
+  .hero-deco::after {
+    display: none;
+  }
+}

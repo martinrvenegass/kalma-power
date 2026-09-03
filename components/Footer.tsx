@@ -14,9 +14,10 @@ const LINKS = [
   {
     title: "Catálogo",
     items: [
-      { label: "10 kW – 50 kW", href: "#catalogo" },
-      { label: "250 kW – 500 kW", href: "#catalogo" },
-      { label: "1000 kW – 2500 kW", href: "#catalogo" },
+      { label: "10 – 50 kW · Línea ligera", href: "#rango-ligera" },
+      { label: "250 – 500 kW · Línea industrial", href: "#rango-industrial" },
+      { label: "1000 – 2500 kW · Alta potencia", href: "#rango-alta-potencia" },
+      { label: "Equipos especiales", href: "#equipos" },
     ],
   },
   {

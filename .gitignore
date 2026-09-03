@@ -8,3 +8,6 @@ npm-debug.log*
 .env*.local
 .vercel
 next-env.d.ts.bak
+
+# Archivo intermedio para publicar el Artifact (se regenera desde preview.html)
+artifact.html

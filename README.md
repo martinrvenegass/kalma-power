@@ -31,22 +31,31 @@ app/
   page.tsx          Composición de la página
   globals.css       Tailwind + utilidades de marca (botones, líneas diagonales)
 components/
-  Header.tsx        Logo + menú + CTA WhatsApp (responsive con menú móvil)
-  Hero.tsx          Banner "El futuro es la energía" + CTAs + stats
-  About.tsx         Sobre Lunaan + 4 diferenciadores
-  Catalog.tsx       6 plantas (10, 50, 250, 500, 1000, 2500 kW)
-  Industries.tsx    6 sectores (Minería, Hotelería, Data Center, Construcción, Hospital, Manufactura)
-  QuoteForm.tsx     Formulario de cotización (nombre, email, potencia, industria) → WhatsApp
-  Contact.tsx       Sección cotización + bloque WhatsApp destacado
-  Chatbot.tsx       Asistente IA flotante con 8 preguntas de calificación de leads
-  Footer.tsx        Redes sociales + links
-  Logo.tsx          Ícono "cruz de energía" + wordmark LUNAAN ENERGY
-  DiagonalLines.tsx Líneas decorativas diagonales (navy + verde lima)
-  icons.tsx         Íconos SVG
+  Header.tsx           Logo + menú + CTA WhatsApp (responsive con menú móvil)
+  Hero.tsx             Banner "El futuro es la energía"; líneas decorativas solo en los costados
+  About.tsx            Sobre Lunaan + 4 diferenciadores
+  Catalog.tsx          3 rangos de potencia (10–50, 250–500, 1000–2500 kW) con ficha técnica por modelo
+  SpecialEquipment.tsx "Equipos especiales y soluciones a la medida" — 8 subcategorías
+  Industries.tsx       6 sectores (Minería, Hotelería, Data Center, Construcción, Hospital, Manufactura)
+  QuoteForm.tsx        Formulario de cotización (nombre, email, potencia, industria) → WhatsApp
+  Contact.tsx          Sección cotización + bloque WhatsApp destacado
+  Chatbot.tsx          Asistente IA flotante con 8 preguntas de calificación de leads
+  Footer.tsx           Redes sociales + links
+  Logo.tsx             Ícono "cruz de energía" + wordmark LUNAAN ENERGY
+  DiagonalLines.tsx    Segmentos decorativos diagonales en esquina (navy + verde lima)
+  icons.tsx            Íconos SVG (incluye SpecialIcon para equipos especiales)
 lib/
-  config.ts         Datos de contacto y helper waLink()
-  data.ts           Catálogo de plantas, industrias y diferenciadores
+  config.ts            Datos de contacto y helper waLink()
+  data.ts              POWER_RANGES (rangos + modelos + fichas), SPECIAL_EQUIPMENT, INDUSTRIES
 ```
+
+### Catálogo
+
+- **3 rangos**: 10–50 kW (Línea ligera), 250–500 kW (Línea industrial), 1000–2500 kW (Alta potencia).
+  El rango 50–250 kW no se comercializa.
+- **Motores**: Cummins, Baudouin, Weichai, FAWDE.
+- **Voltajes**: 208/220/440/480 V trifásico (reconfigurable); 127 V monofásico solo en 10–50 kW. No se ofrece 380 V salvo petición.
+- Cada modelo (10, 50, 250, 500, 1000, 2500 kW) trae ficha técnica detallada en `POWER_RANGES[].models[].specs`.
 
 ## Personalización rápida
 
@@ -54,7 +63,9 @@ lib/
 |-----------------------------|-----------------------------------------|
 | Número de WhatsApp / correo | `lib/config.ts`                         |
 | Paleta de colores           | `tailwind.config.ts` → `theme.colors`   |
-| Textos de plantas / sectores| `lib/data.ts`                           |
+| Rangos, modelos y fichas    | `lib/data.ts` → `POWER_RANGES`           |
+| Equipos especiales          | `lib/data.ts` → `SPECIAL_EQUIPMENT`      |
+| Sectores / industrias       | `lib/data.ts` → `INDUSTRIES`             |
 | Preguntas del chatbot       | `components/Chatbot.tsx` → `QUESTIONS`   |
 
 ### Paleta

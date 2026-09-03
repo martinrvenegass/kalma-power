@@ -80,6 +80,63 @@ export function IndustryIcon({ name, className = base }: IconProps & { name: str
   }
 }
 
+export function SpecialIcon({ name, className = base }: IconProps & { name: string }) {
+  switch (name) {
+    case "sync":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M4 9a8 8 0 0 1 13-3l3 3M20 5v4h-4M20 15a8 8 0 0 1-13 3l-3-3M4 19v-4h4" />
+        </svg>
+      );
+    case "fuel":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M14 9h3a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3M7 8h6" />
+        </svg>
+      );
+    case "enclosure":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6M7 10h.01M17 10h.01" />
+        </svg>
+      );
+    case "thermal":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M6 4v10a4 4 0 1 0 4 0V4a2 2 0 0 0-4 0ZM8 14V8M14 5c2 0 2 2 4 2M14 10c2 0 2 2 4 2M14 15c2 0 2 2 4 2" />
+        </svg>
+      );
+    case "finish":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M12 3a9 9 0 0 0 0 18c1.66 0 2-1.34 2-2s-.34-1-.34-1.5c0-.83.67-1.5 1.5-1.5H17a4 4 0 0 0 4-4c0-4.42-4.03-8-9-8Z" />
+          <path d="M7.5 11h.01M10.5 7.5h.01M15 7.5h.01" />
+        </svg>
+      );
+    case "electrical":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M13 2 4.5 13.5H11l-2 8.5 8.5-12H11l2-8Z" />
+        </svg>
+      );
+    case "control":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <rect x="3" y="4" width="18" height="13" rx="1.5" />
+          <path d="M8 21h8M12 17v4M7 8h4M7 11h6M15 8h2" />
+        </svg>
+      );
+    case "engineering":
+      return (
+        <svg viewBox="0 0 24 24" className={className} {...stroke} aria-hidden="true">
+          <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.5 1.5 0 0 0 2 2l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5Z" />
+        </svg>
+      );
+    default:
+      return <BoltIcon className={className} />;
+  }
+}
+
 export function CheckIcon({ className = "h-5 w-5" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className={className} aria-hidden="true">
