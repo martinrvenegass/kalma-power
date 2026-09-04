@@ -1,5 +1,5 @@
-import { ArrowIcon, WhatsAppIcon, BoltIcon } from "./icons";
-import { waLink } from "@/lib/config";
+import { ArrowIcon, WhatsAppIcon, BoltIcon, PhoneIcon } from "./icons";
+import { COMPANY, waLink, telLink } from "@/lib/config";
 
 const STATS = [
   { value: "10–2500", label: "kW por planta" },
@@ -41,15 +41,22 @@ export default function Hero() {
                 <ArrowIcon />
               </a>
               <a
-                href={waLink("Hola LUNAAN ENERGY, quiero asesoría sobre una planta eléctrica.")}
+                href={waLink("Hola LUNAAN ENERGY, quiero cotizar una planta eléctrica.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-white"
               >
                 <WhatsAppIcon />
-                Hablar por WhatsApp
+                Cotizar por WhatsApp
               </a>
             </div>
+            <a
+              href={telLink()}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition hover:text-lima"
+            >
+              <PhoneIcon className="h-4 w-4" />
+              {COMPANY.whatsappNumber}
+            </a>
 
             <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/15 pt-8">
               {STATS.map((s) => (

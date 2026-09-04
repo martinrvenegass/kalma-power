@@ -1,7 +1,7 @@
 import DiagonalLines from "./DiagonalLines";
 import { SpecialIcon, ArrowIcon, WhatsAppIcon } from "./icons";
 import { SPECIAL_EQUIPMENT } from "@/lib/data";
-import { waLink } from "@/lib/config";
+import { COMPANY, waLink } from "@/lib/config";
 
 export default function SpecialEquipment() {
   const { intro, categories, closing } = SPECIAL_EQUIPMENT;
@@ -52,18 +52,21 @@ export default function SpecialEquipment() {
               {closing.text}
             </p>
           </div>
-          <a
-            href={waLink(
-              "Hola LUNAAN ENERGY, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?"
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary shrink-0"
-          >
-            <WhatsAppIcon />
-            Consultar mi proyecto
-            <ArrowIcon />
-          </a>
+          <div className="shrink-0 text-center">
+            <a
+              href={waLink(
+                "Hola LUNAAN ENERGY, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?"
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <WhatsAppIcon />
+              Cotizar por WhatsApp
+              <ArrowIcon />
+            </a>
+            <p className="mt-2 text-xs text-navy-900/50">{COMPANY.whatsappNumber}</p>
+          </div>
         </div>
       </div>
     </section>

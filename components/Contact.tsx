@@ -1,7 +1,7 @@
 import DiagonalLines from "./DiagonalLines";
 import QuoteForm from "./QuoteForm";
-import { WhatsAppIcon, ArrowIcon } from "./icons";
-import { COMPANY, waLink } from "@/lib/config";
+import { WhatsAppIcon, ArrowIcon, PhoneIcon, MailIcon } from "./icons";
+import { COMPANY, waLink, telLink, mailLink } from "@/lib/config";
 
 export default function Contact() {
   return (
@@ -52,18 +52,36 @@ export default function Contact() {
                 {COMPANY.whatsappNumber} · Lun a Sáb 8:00–19:00 · Respuesta inmediata
               </p>
             </div>
-            <a
-              href={waLink(
-                "Hola LUNAAN ENERGY, quiero hablar con un asesor sobre plantas eléctricas."
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary shrink-0"
-            >
-              <WhatsAppIcon />
-              Abrir WhatsApp
-              <ArrowIcon />
-            </a>
+            <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
+              <a
+                href={waLink(
+                  "Hola LUNAAN ENERGY, quiero hablar con un asesor sobre plantas eléctricas."
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                <WhatsAppIcon />
+                Cotizar por WhatsApp
+                <ArrowIcon />
+              </a>
+              <div className="flex gap-4">
+                <a
+                  href={telLink()}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/70 transition hover:text-lima"
+                >
+                  <PhoneIcon className="h-3.5 w-3.5" />
+                  Llamar
+                </a>
+                <a
+                  href={mailLink("Cotización LUNAAN ENERGY")}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/70 transition hover:text-lima"
+                >
+                  <MailIcon className="h-3.5 w-3.5" />
+                  Email
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

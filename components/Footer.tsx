@@ -1,6 +1,6 @@
 import Logo from "./Logo";
-import { COMPANY, waLink } from "@/lib/config";
-import { WhatsAppIcon } from "./icons";
+import { COMPANY, waLink, telLink, mailLink } from "@/lib/config";
+import { WhatsAppIcon, PhoneIcon, MailIcon } from "./icons";
 
 const LINKS = [
   {
@@ -56,16 +56,35 @@ export default function Footer() {
               Plantas eléctricas de 10 kW a 2500 kW. Ingeniería, instalación y
               servicio para la industria.
             </p>
-            <a
-              href={waLink("Hola LUNAAN ENERGY, quiero más información.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-lima"
-            >
-              <WhatsAppIcon className="h-4 w-4" />
-              {COMPANY.whatsappNumber}
-            </a>
-            <p className="mt-1 text-sm text-white/60">{COMPANY.email}</p>
+
+            <h4 className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-lima">
+              Contacto directo
+            </h4>
+            <div className="mt-4 flex flex-col gap-2.5">
+              <a
+                href={mailLink()}
+                className="inline-flex items-center gap-2.5 text-sm text-white/80 transition hover:text-white"
+              >
+                <MailIcon className="h-4 w-4 shrink-0 text-lima" />
+                {COMPANY.email}
+              </a>
+              <a
+                href={telLink()}
+                className="inline-flex items-center gap-2.5 text-sm text-white/80 transition hover:text-white"
+              >
+                <PhoneIcon className="h-4 w-4 shrink-0 text-lima" />
+                {COMPANY.whatsappNumber}
+              </a>
+              <a
+                href={waLink("Hola LUNAAN ENERGY, quiero más información.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 text-sm font-bold text-lima"
+              >
+                <WhatsAppIcon className="h-4 w-4 shrink-0" />
+                WhatsApp: {COMPANY.whatsappNumber}
+              </a>
+            </div>
           </div>
 
           {LINKS.map((col) => (

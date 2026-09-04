@@ -1,7 +1,7 @@
 import DiagonalLines from "./DiagonalLines";
 import { ArrowIcon, WhatsAppIcon } from "./icons";
 import { POWER_RANGES, ENGINE_BRANDS } from "@/lib/data";
-import { waLink } from "@/lib/config";
+import { COMPANY, waLink } from "@/lib/config";
 
 export default function Catalog() {
   return (
@@ -113,9 +113,10 @@ export default function Catalog() {
                       className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-lima transition group-hover:gap-3"
                     >
                       <WhatsAppIcon className="h-4 w-4" />
-                      Cotizar esta planta
+                      Cotizar por WhatsApp
                       <ArrowIcon />
                     </a>
+                    <p className="mt-1.5 text-xs text-white/40">{COMPANY.whatsappNumber}</p>
                   </article>
                 ))}
               </div>

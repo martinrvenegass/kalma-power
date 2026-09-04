@@ -8,6 +8,7 @@ import { waLink } from "@/lib/config";
 type FormState = {
   nombre: string;
   email: string;
+  telefono: string;
   potencia: string;
   industria: string;
   mensaje: string;
@@ -16,10 +17,16 @@ type FormState = {
 const EMPTY: FormState = {
   nombre: "",
   email: "",
+  telefono: "",
   potencia: "",
   industria: "",
   mensaje: "",
 };
+
+function isValidPhone(value: string) {
+  const digits = value.replace(/[^\d+]/g, "");
+  return /^(\+?52)?\d{10}$/.test(digits);
+}
 
 export default function QuoteForm() {
   const [form, setForm] = useState<FormState>(EMPTY);
@@ -35,6 +42,7 @@ export default function QuoteForm() {
     const e: Partial<Record<keyof FormState, string>> = {};
     if (!form.nombre.trim()) e.nombre = "Ingresa tu nombre";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Correo no válido";
+    if (!isValidPhone(form.telefono)) e.telefono = "Teléfono no válido, ej. +52 564 181 9907";
     if (!form.potencia) e.potencia = "Selecciona una potencia";
     if (!form.industria) e.industria = "Selecciona una industria";
     setErrors(e);
@@ -42,12 +50,9 @@ export default function QuoteForm() {
   };
 
   const buildMessage = () =>
-    `Solicitud de cotización — LUNAAN ENERGY\n\n` +
-    `Nombre: ${form.nombre}\n` +
-    `Email: ${form.email}\n` +
-    `Potencia: ${form.potencia}\n` +
-    `Industria: ${form.industria}\n` +
-    (form.mensaje ? `Detalle: ${form.mensaje}\n` : "");
+    `Lead: ${form.nombre} | Tel: ${form.telefono} | Email: ${form.email} | ` +
+    `Potencia: ${form.potencia} | Industria: ${form.industria}` +
+    (form.mensaje ? `\nDetalle: ${form.mensaje}` : "");
 
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
@@ -67,8 +72,8 @@ export default function QuoteForm() {
         </h3>
         <p className="mt-2 text-sm text-navy-900/65">
           Recibimos tu solicitud para una planta de {form.potencia} en el sector{" "}
-          {form.industria}. Un asesor te contactará en breve. Si se abrió WhatsApp,
-          puedes enviar el mensaje ya redactado.
+          {form.industria}. Un asesor te contactará al {form.telefono} en breve. Si
+          se abrió WhatsApp, puedes enviar el mensaje ya redactado.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a
@@ -130,6 +135,21 @@ export default function QuoteForm() {
             placeholder="nombre@empresa.com"
           />
           {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+        </div>
+
+        <div className="sm:col-span-2">
+          <label className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-navy-900/70">
+            Teléfono
+          </label>
+          <input
+            type="tel"
+            className={`${field} ${errors.telefono ? "border-red-400" : "border-navy-900/15"}`}
+            value={form.telefono}
+            onChange={(e) => update("telefono", e.target.value)}
+            placeholder="+52 564 181 9907"
+            autoComplete="tel"
+          />
+          {errors.telefono && <p className="mt-1 text-xs text-red-500">{errors.telefono}</p>}
         </div>
 
         <div>

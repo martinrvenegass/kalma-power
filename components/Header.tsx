@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { WhatsAppIcon } from "./icons";
-import { COMPANY, waLink } from "@/lib/config";
+import { WhatsAppIcon, PhoneIcon } from "./icons";
+import { COMPANY, waLink, telLink } from "@/lib/config";
 
 const NAV = [
   { label: "Sobre Lunaan", href: "#sobre" },
@@ -48,7 +48,16 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <a
+            href={telLink()}
+            className="flex items-center gap-1.5 whitespace-nowrap text-sm font-bold text-navy-900 transition hover:text-navy-700"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-lima text-navy-900">
+              <PhoneIcon className="h-3.5 w-3.5" />
+            </span>
+            {COMPANY.whatsappNumber}
+          </a>
           <a
             href={waLink("Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas.")}
             target="_blank"
@@ -100,6 +109,16 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            <a
+              href={telLink()}
+              onClick={() => setOpen(false)}
+              className="mt-2 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-bold text-navy-900"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lima text-navy-900">
+                <PhoneIcon className="h-4 w-4" />
+              </span>
+              Llamar {COMPANY.whatsappNumber}
+            </a>
             <a
               href={waLink("Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas.")}
               target="_blank"

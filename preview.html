@@ -109,7 +109,11 @@
   .nav{display:flex;align-items:center;gap:30px}
   .nav a{font-size:.9rem;font-weight:600;color:var(--ink-soft);transition:color .15s ease}
   .nav a:hover{color:var(--navy)}
-  .header__cta{display:flex}
+  .header__cta{display:flex;align-items:center;gap:18px}
+  .header__tel{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-size:.85rem;font-weight:700;color:var(--navy-deep)}
+  .header__tel:hover{color:var(--navy)}
+  .header__tel span{display:flex;height:26px;width:26px;flex:none;align-items:center;justify-content:center;border-radius:50%;background:var(--lima);color:var(--navy-deep)}
+  .header__tel svg{width:13px;height:13px}
   .burger{display:none;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:12px;background:none;cursor:pointer;align-items:center;justify-content:center}
   .burger span{position:relative;width:20px;height:2px;background:var(--navy-deep);display:block}
   .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--navy-deep);transition:transform .2s ease,opacity .2s ease}
@@ -117,6 +121,11 @@
   .mobile-nav{display:none;border-top:1px solid var(--line);background:var(--paper)}
   .mobile-nav a{display:block;padding:14px 0;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)}
   .mobile-nav .btn{width:100%;margin-top:16px}
+  .mobile-nav .header__tel{display:flex;align-items:center;gap:8px;padding:14px 0;border-bottom:1px solid var(--line)}
+
+  /* Enlaces de contacto directo reutilizables (teléfono / email) */
+  .tel-chip{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600}
+  .tel-chip svg{width:16px;height:16px;flex:none}
 
   /* ============ Hero ============ */
   .hero{position:relative;background:var(--navy-deep);color:var(--on-navy);padding:150px 0 96px;overflow:hidden}
@@ -287,6 +296,10 @@
   .fab--chat{bottom:20px;background:var(--lima);color:var(--navy-deep)}
   .fab svg{width:26px;height:26px}
   .fab--wa svg{width:28px;height:28px}
+  .fab--tel{position:fixed;right:20px;bottom:156px;z-index:90;display:flex;align-items:center;gap:8px;
+    background:var(--white);border:1px solid var(--line-strong);border-radius:999px;padding:10px 16px;
+    font-size:.78rem;font-weight:700;color:var(--navy-deep);box-shadow:0 16px 36px -14px rgba(13,24,54,.4);white-space:nowrap}
+  .fab--tel svg{width:16px;height:16px;flex:none}
 
   .chat{position:fixed;right:20px;bottom:88px;z-index:95;width:min(calc(100vw - 40px),380px);height:560px;
     background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 40px 80px -30px rgba(13,24,54,.5)}
@@ -309,9 +322,17 @@
   .chat__form button{flex:none;width:38px;height:38px;border-radius:50%;border:none;background:var(--navy);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .chat__form button:disabled{opacity:.4;cursor:not-allowed}
   .chat__progress{margin-top:8px;text-align:center;font-family:var(--ff-mono);font-size:.62rem;color:var(--ink-soft)}
-  .chat__cta{display:flex;flex-direction:column;gap:8px;padding-top:4px}
+  .chat__cta{display:flex;flex-direction:column;gap:10px;padding-top:4px}
   .chat__cta .btn{width:100%;padding:11px;font-size:.72rem}
   .chat__cta .reset{border:1px solid var(--line-strong);background:none;color:var(--ink-soft);border-radius:999px;padding:9px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:var(--ff-body)}
+  .chat__contact{border:1px solid var(--line);border-radius:12px;background:var(--white);padding:10px}
+  .chat__contact p{display:flex;align-items:center;gap:6px;font-size:.7rem;font-weight:600;color:var(--ink-soft)}
+  .chat__contact p svg{width:13px;height:13px;color:var(--sky);flex:none}
+  .chat__contact__row{margin-top:9px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .chat__contact__row a{display:flex;flex-direction:column;align-items:center;gap:4px;border:1px solid var(--line-strong);
+    border-radius:10px;padding:8px 4px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);transition:background .15s ease}
+  .chat__contact__row a:hover{background:var(--ice)}
+  .chat__contact__row svg{width:15px;height:15px}
 
   /* ============ Animación de entrada ============ */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -372,6 +393,10 @@
     </nav>
 
     <div class="header__cta">
+      <a class="header__tel" data-tel href="#">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></span>
+        +52 564 181 9907
+      </a>
       <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas." href="#">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
         WhatsApp
@@ -387,6 +412,10 @@
     <a href="#industrias">Industrias</a>
     <a href="#cotizacion">Cotización</a>
     <a href="#contacto">Contacto</a>
+    <a class="header__tel" data-tel href="#">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg></span>
+      Llamar +52 564 181 9907
+    </a>
     <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas." href="#">WhatsApp +52 564 181 9907</a>
   </div>
 </header>
@@ -408,11 +437,15 @@
         <a class="btn btn-primary" href="#cotizacion">Solicitar cotización
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-ghost-light" data-wa="Hola LUNAAN ENERGY, quiero asesoría sobre una planta eléctrica." href="#">
+        <a class="btn btn-ghost-light" data-wa="Hola LUNAAN ENERGY, quiero cotizar una planta eléctrica." href="#">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-          Hablar por WhatsApp
+          Cotizar por WhatsApp
         </a>
       </div>
+      <a class="tel-chip" data-tel href="#" style="margin-top:16px;color:rgba(238,242,255,.7)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+        +52 564 181 9907
+      </a>
       <dl class="stats">
         <div><dt>10–2500</dt><dd>kW por planta</dd></div>
         <div><dt>24/7</dt><dd>Servicio en sitio</dd></div>
@@ -487,10 +520,13 @@
         <h3>¿Tu proyecto requiere algo diferente?</h3>
         <p>Diseñamos la configuración del generador, sistema eléctrico, autonomía, caseta y auxiliares de acuerdo con las condiciones y requerimientos específicos de tu instalación.</p>
       </div>
-      <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?" href="#">
-        Consultar mi proyecto
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      <div style="text-align:center">
+        <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?" href="#">
+          Cotizar por WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p style="margin-top:8px;font-size:.75rem;color:var(--ink-soft)">+52 564 181 9907</p>
+      </div>
     </div>
   </div>
 </section>
@@ -532,6 +568,11 @@
           <label for="q-email">Correo electrónico</label>
           <input id="q-email" name="email" type="email" placeholder="nombre@empresa.com" autocomplete="email">
           <span class="err" data-err="email" hidden></span>
+        </div>
+        <div class="field">
+          <label for="q-telefono">Teléfono</label>
+          <input id="q-telefono" name="telefono" type="tel" placeholder="+52 564 181 9907" autocomplete="tel">
+          <span class="err" data-err="telefono" hidden></span>
         </div>
         <div class="field two">
           <div class="col">
@@ -579,10 +620,22 @@
         <h2>Habla ahora con un asesor por WhatsApp</h2>
         <p>+52 564 181 9907 · Lun a Sáb 8:00–19:00 · Respuesta inmediata</p>
       </div>
-      <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero hablar con un asesor sobre plantas eléctricas." href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-        Abrir WhatsApp
-      </a>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+        <a class="btn btn-primary" data-wa="Hola LUNAAN ENERGY, quiero hablar con un asesor sobre plantas eléctricas." href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <div style="display:flex;gap:18px">
+          <a class="tel-chip" data-tel href="#" style="color:rgba(238,242,255,.7);font-size:.78rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+            Llamar
+          </a>
+          <a class="tel-chip" data-mail href="#" style="color:rgba(238,242,255,.7);font-size:.78rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -600,8 +653,22 @@
           <span><span class="brand__name">LUNAAN</span><span class="brand__sub">Energy</span></span>
         </a>
         <p>Plantas eléctricas de 10 kW a 2500 kW. Ingeniería, instalación y servicio para la industria.</p>
-        <a class="footer__contact" data-wa="Hola LUNAAN ENERGY, quiero más información." href="#">+52 564 181 9907</a>
-        <p style="font-family:var(--ff-mono);font-size:.82rem;margin-top:6px">contacto@lunaanenergy.com</p>
+
+        <h4 style="margin-top:26px">Contacto directo</h4>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:9px">
+          <a class="tel-chip" data-mail href="#" style="color:rgba(238,242,255,.8)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            info@lunaanenergy.com
+          </a>
+          <a class="tel-chip" data-tel href="#" style="color:rgba(238,242,255,.8)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+            +52 564 181 9907
+          </a>
+          <a class="tel-chip" data-wa="Hola LUNAAN ENERGY, quiero más información." href="#" style="color:var(--lima);font-weight:700">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            WhatsApp: +52 564 181 9907
+          </a>
+        </div>
       </div>
       <div>
         <h4>Compañía</h4>
@@ -636,6 +703,10 @@
 <button class="fab fab--chat" id="chatToggle" aria-label="Abrir asistente">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2Z"/></svg>
 </button>
+<a class="fab--tel" id="fabTel" data-tel href="#" aria-label="Llamar a LUNAAN ENERGY">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+  +52 564 181 9907
+</a>
 
 <!-- ===================== CHATBOT ===================== -->
 <div class="chat" id="chat" role="dialog" aria-label="Asistente Lunaan">
@@ -660,14 +731,24 @@
 (function(){
   "use strict";
   var WA = "525641819907";
+  var TEL = "+525641819907";
+  var EMAIL = "info@lunaanenergy.com";
   function waUrl(text){ return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); }
+  function telUrl(){ return "tel:" + TEL; }
+  function mailUrl(subject){ return "mailto:" + EMAIL + (subject ? "?subject=" + encodeURIComponent(subject) : ""); }
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  /* ---- Enlaces WhatsApp genéricos ---- */
+  /* ---- Enlaces WhatsApp / teléfono / correo genéricos ---- */
   document.querySelectorAll("[data-wa]").forEach(function(el){
     el.setAttribute("href", waUrl(el.getAttribute("data-wa")));
     el.setAttribute("target","_blank"); el.setAttribute("rel","noopener noreferrer");
+  });
+  document.querySelectorAll("[data-tel]").forEach(function(el){
+    el.setAttribute("href", telUrl());
+  });
+  document.querySelectorAll("[data-mail]").forEach(function(el){
+    el.setAttribute("href", mailUrl());
   });
 
   /* ---- Header scroll + menú móvil ---- */
@@ -794,7 +875,8 @@
       '<p class="plant__uses">' + m.sectors + '</p>' +
       '<a class="plant__link" target="_blank" rel="noopener noreferrer" href="' +
         waUrl("Hola LUNAAN ENERGY, me interesa la planta de " + m.power + " (" + m.title + "). ¿Me comparten ficha técnica y cotización?") +
-        '">Cotizar esta planta ' + arrow + '</a></article>';
+        '">Cotizar por WhatsApp ' + arrow + '</a>' +
+      '<p style="margin-top:6px;font-size:.72rem;color:rgba(238,242,255,.4)">+52 564 181 9907</p></article>';
   }
 
   var rangeList = document.getElementById("rangeList");
@@ -856,11 +938,16 @@
     if (msg){ input.classList.add("invalid"); span.textContent = msg; span.hidden = false; }
     else { input.classList.remove("invalid"); span.hidden = true; }
   }
+  function isValidPhone(v){
+    var digits = v.replace(/[^\d+]/g, "");
+    return /^(\+?52)?\d{10}$/.test(digits);
+  }
   form.addEventListener("submit", function(e){
     e.preventDefault();
     var f = {
       nombre: form.nombre.value.trim(),
       email: form.email.value.trim(),
+      telefono: form.telefono.value.trim(),
       potencia: form.potencia.value,
       industria: form.industria.value,
       mensaje: form.mensaje.value.trim()
@@ -868,13 +955,14 @@
     var ok = true;
     if (!f.nombre){ setErr("nombre","Ingresa tu nombre"); ok = false; } else setErr("nombre");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){ setErr("email","Correo no válido"); ok = false; } else setErr("email");
+    if (!isValidPhone(f.telefono)){ setErr("telefono","Teléfono no válido, ej. +52 564 181 9907"); ok = false; } else setErr("telefono");
     if (!f.potencia){ setErr("potencia","Selecciona una potencia"); ok = false; } else setErr("potencia");
     if (!f.industria){ setErr("industria","Selecciona una industria"); ok = false; } else setErr("industria");
     if (!ok) return;
 
-    var msg = "Solicitud de cotización — LUNAAN ENERGY\n\n" +
-      "Nombre: " + f.nombre + "\nEmail: " + f.email + "\nPotencia: " + f.potencia +
-      "\nIndustria: " + f.industria + (f.mensaje ? "\nDetalle: " + f.mensaje : "");
+    var msg = "Lead: " + f.nombre + " | Tel: " + f.telefono + " | Email: " + f.email +
+      " | Potencia: " + f.potencia + " | Industria: " + f.industria +
+      (f.mensaje ? "\nDetalle: " + f.mensaje : "");
     window.open(waUrl(msg), "_blank", "noopener,noreferrer");
 
     body.innerHTML =
@@ -882,7 +970,7 @@
         '<span class="tick"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></span>' +
         '<h3>¡Gracias, ' + f.nombre.split(" ")[0] + '!</h3>' +
         '<p>Recibimos tu solicitud para una planta de ' + f.potencia + ' en el sector ' + f.industria +
-        '. Un asesor te contactará en breve. Si se abrió WhatsApp, puedes enviar el mensaje ya redactado.</p>' +
+        '. Un asesor te contactará al ' + f.telefono + ' en breve. Si se abrió WhatsApp, puedes enviar el mensaje ya redactado.</p>' +
         '<div class="row">' +
           '<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="' + waUrl(msg) + '">Abrir WhatsApp</a>' +
           '<button type="button" class="btn btn-outline" id="formReset">Nueva cotización</button>' +
@@ -964,10 +1052,21 @@
     a.target = "_blank"; a.rel = "noopener noreferrer";
     a.href = waUrl(summary);
     a.textContent = "Enviar resumen por WhatsApp";
+
+    var contact = document.createElement("div");
+    contact.className = "chat__contact";
+    contact.innerHTML =
+      '<p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>Contacta directamente: +52 564 181 9907</p>' +
+      '<div class="chat__contact__row">' +
+        '<a href="' + telUrl() + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>Llamar</a>' +
+        '<a href="' + waUrl(summary) + '" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.06 1.6 5.78L2 22l4.44-1.17a9.9 9.9 0 0 0 5.6 1.72c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.16a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-2.63.69.7-2.57-.2-.31a8.24 8.24 0 0 1-1.26-4.36 8.24 8.24 0 0 1 14.08-5.82 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.25 8.25Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.24-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.73 2.64 4.19 3.7 2.46 1.06 2.46.71 2.9.67.44-.04 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>WhatsApp</a>' +
+        '<a href="' + mailUrl("Cotización LUNAAN ENERGY") + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Email</a>' +
+      '</div>';
+
     var r = document.createElement("button");
     r.type = "button"; r.className = "reset"; r.textContent = "Reiniciar";
     r.addEventListener("click", reset);
-    wrap.appendChild(a); wrap.appendChild(r);
+    wrap.appendChild(a); wrap.appendChild(contact); wrap.appendChild(r);
     foot.appendChild(wrap);
   }
   function answer(val){
@@ -986,14 +1085,25 @@
     addMsg("bot", QUESTIONS[0].text);
     renderFoot();
   }
+  var fabTel = document.getElementById("fabTel");
+  var fabWa = document.querySelector(".fab--wa");
+  function toggleOtherFabs(hide){
+    if (fabTel) fabTel.style.display = hide ? "none" : "";
+    if (fabWa) fabWa.style.display = hide ? "none" : "";
+  }
   function openChat(){
     chat.classList.add("is-open");
+    toggleOtherFabs(true);
     if (!started){ started = true; addMsg("bot", QUESTIONS[0].text); renderFoot(); }
   }
+  function closeChat(){
+    chat.classList.remove("is-open");
+    toggleOtherFabs(false);
+  }
   document.getElementById("chatToggle").addEventListener("click", function(){
-    chat.classList.contains("is-open") ? chat.classList.remove("is-open") : openChat();
+    chat.classList.contains("is-open") ? closeChat() : openChat();
   });
-  document.getElementById("chatClose").addEventListener("click", function(){ chat.classList.remove("is-open"); });
+  document.getElementById("chatClose").addEventListener("click", closeChat);
   document.querySelectorAll("[data-chat-open]").forEach(function(el){
     el.addEventListener("click", function(e){ e.preventDefault(); openChat(); });
   });

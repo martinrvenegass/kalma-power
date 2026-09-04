@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CloseIcon, WhatsAppIcon, ArrowIcon } from "./icons";
+import { CloseIcon, WhatsAppIcon, ArrowIcon, PhoneIcon, MailIcon } from "./icons";
 import Logo from "./Logo";
-import { waLink } from "@/lib/config";
+import { COMPANY, waLink, telLink, mailLink } from "@/lib/config";
 
 type Question = {
   id: string;
@@ -146,6 +146,18 @@ export default function Chatbot() {
         )}
       </button>
 
+      {/* Mini botón de llamada, junto al botón de Luna */}
+      {!open && (
+        <a
+          href={telLink()}
+          className="fixed bottom-24 right-5 z-[60] flex items-center gap-2 rounded-full border border-navy-900/10 bg-white px-3.5 py-2 text-xs font-bold text-navy-900 shadow-lg shadow-navy-900/20 transition hover:bg-sky-light"
+          aria-label={`Llamar a LUNAAN ENERGY: ${COMPANY.whatsappNumber}`}
+        >
+          <PhoneIcon className="h-4 w-4" />
+          {COMPANY.whatsappNumber}
+        </a>
+      )}
+
       {/* Panel */}
       {open && (
         <div className="fixed bottom-24 right-5 z-[60] flex h-[560px] w-[calc(100vw-2.5rem)] max-w-[380px] animate-slide-in flex-col overflow-hidden rounded-2xl border border-navy-900/10 bg-white shadow-2xl shadow-navy-900/20">
@@ -182,7 +194,7 @@ export default function Chatbot() {
             ))}
 
             {done && (
-              <div className="space-y-2 pt-1">
+              <div className="space-y-3 pt-1">
                 <a
                   href={waLink(summary())}
                   target="_blank"
@@ -192,6 +204,39 @@ export default function Chatbot() {
                   <WhatsAppIcon className="h-4 w-4" />
                   Enviar resumen por WhatsApp
                 </a>
+
+                <div className="rounded-xl border border-navy-900/10 bg-white p-3">
+                  <p className="flex items-center gap-1.5 text-xs font-semibold text-navy-900/70">
+                    <PhoneIcon className="h-3.5 w-3.5 text-sky" />
+                    Contacta directamente: {COMPANY.whatsappNumber}
+                  </p>
+                  <div className="mt-2.5 grid grid-cols-3 gap-2">
+                    <a
+                      href={telLink()}
+                      className="flex flex-col items-center gap-1 rounded-lg border border-navy-900/15 py-2 text-[0.65rem] font-bold uppercase tracking-wide text-navy-900 transition hover:bg-sky-light"
+                    >
+                      <PhoneIcon className="h-4 w-4" />
+                      Llamar
+                    </a>
+                    <a
+                      href={waLink(summary())}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center gap-1 rounded-lg border border-navy-900/15 py-2 text-[0.65rem] font-bold uppercase tracking-wide text-navy-900 transition hover:bg-sky-light"
+                    >
+                      <WhatsAppIcon className="h-4 w-4" />
+                      WhatsApp
+                    </a>
+                    <a
+                      href={mailLink("Cotización LUNAAN ENERGY")}
+                      className="flex flex-col items-center gap-1 rounded-lg border border-navy-900/15 py-2 text-[0.65rem] font-bold uppercase tracking-wide text-navy-900 transition hover:bg-sky-light"
+                    >
+                      <MailIcon className="h-4 w-4" />
+                      Email
+                    </a>
+                  </div>
+                </div>
+
                 <button
                   onClick={reset}
                   className="w-full rounded-full border border-navy-900/20 py-2 text-xs font-bold uppercase tracking-wide text-navy-900/70 hover:bg-white"
