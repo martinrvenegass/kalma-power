@@ -78,8 +78,7 @@ export default function Hero() {
                 <BoltIcon className="h-5 w-5" />
               </span>
               <p className="text-sm font-semibold text-white/85">
-                Instalación y puesta en marcha por ingenieros LUNAAN, con
-                servicio en sitio 24/7.
+                Distribución en todo México.
               </p>
             </div>
           </div>
