@@ -3,6 +3,13 @@ import { ArrowIcon, WhatsAppIcon } from "./icons";
 import { POWER_RANGES, ENGINE_BRANDS } from "@/lib/data";
 import { COMPANY, waLink } from "@/lib/config";
 
+// Imagen de portada por rango (por id de POWER_RANGES)
+const RANGE_IMAGES: Record<string, string> = {
+  ligera: "https://images.unsplash.com/photo-1658260867231-535a1f7c98b9?w=1200&q=80&fit=crop",
+  industrial: "https://images.unsplash.com/photo-1780445392484-38a4852a1fd8?w=1200&q=80&fit=crop",
+  "alta-potencia": "https://images.unsplash.com/photo-1731244426166-4d230492b61a?w=1200&q=80&fit=crop",
+};
+
 export default function Catalog() {
   return (
     <section id="catalogo" className="relative overflow-hidden bg-navy-900 py-24 text-white">
@@ -24,6 +31,17 @@ export default function Catalog() {
         <div className="mt-16 flex flex-col gap-16">
           {POWER_RANGES.map((range) => (
             <div key={range.id} id={`rango-${range.id}`}>
+              {/* Imagen de portada */}
+              {RANGE_IMAGES[range.id] && (
+                <div className="mb-6 overflow-hidden rounded-2xl border border-white/12">
+                  <img
+                    src={RANGE_IMAGES[range.id]}
+                    alt={`Plantas eléctricas ${range.label} — ${range.name}`}
+                    className="h-48 w-full object-cover sm:h-60"
+                  />
+                </div>
+              )}
+
               {/* Encabezado del rango */}
               <div className="flex flex-col gap-5 border-b border-white/12 pb-7 md:flex-row md:items-end md:justify-between">
                 <div>
