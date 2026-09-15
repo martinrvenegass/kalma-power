@@ -1,5 +1,5 @@
-import { ArrowIcon, WhatsAppIcon, BoltIcon, PhoneIcon } from "./icons";
-import { COMPANY, waLink, telLink } from "@/lib/config";
+import { WhatsAppIcon, BoltIcon, PhoneIcon } from "./icons";
+import { waLink, telLink } from "@/lib/config";
 
 const STATS = [
   { value: "10–2500", label: "kW por planta" },
@@ -21,7 +21,8 @@ export default function Hero() {
       />
 
       <div className="container-lun relative">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+          {/* Texto */}
           <div className="animate-fade-up">
             <span className="section-eyebrow text-lima">
               <BoltIcon className="h-4 w-4" />
@@ -31,32 +32,25 @@ export default function Hero() {
               El futuro es <span className="text-lima">la energía</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80">
-              En LUNAAN ENERGY diseñamos, instalamos y damos servicio a plantas
-              eléctricas de 10 kW a 2500 kW para que tu operación nunca se detenga.
+              Generadores diésel de 10 a 2500 kW. Respaldo confiable,
+              instalación rápida y soporte 24/7 en todo México.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <a href="#cotizacion" className="btn-primary">
-                Solicitar cotización
-                <ArrowIcon />
+              <a href={telLink()} className="btn-white">
+                <PhoneIcon className="h-4 w-4" />
+                Llamar ahora
               </a>
               <a
-                href={waLink("Hola LUNAAN ENERGY, quiero cotizar una planta eléctrica.")}
+                href={waLink("Hola LUNAAN ENERGY, quiero información sobre generadores.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-white"
+                className="btn-primary"
               >
                 <WhatsAppIcon />
-                Cotizar por WhatsApp
+                WhatsApp
               </a>
             </div>
-            <a
-              href={telLink()}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition hover:text-lima"
-            >
-              <PhoneIcon className="h-4 w-4" />
-              {COMPANY.whatsappNumber}
-            </a>
 
             <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/15 pt-8">
               {STATS.map((s) => (
@@ -70,28 +64,23 @@ export default function Hero() {
             </dl>
           </div>
 
+          {/* Imagen */}
           <div className="relative animate-fade-up [animation-delay:120ms]">
-            <div className="relative rounded-3xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-8 backdrop-blur">
-              <div className="absolute -left-3 top-8 h-16 w-1.5 rounded-full bg-lima" />
-              <p className="text-sm uppercase tracking-[0.2em] text-lima">
-                Energía continua
+            <div className="overflow-hidden rounded-3xl border border-white/15 shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1636867759143-c28c1e909bd3?w=900&q=80&fit=crop"
+                alt="Planta eléctrica industrial en operación"
+                className="h-[420px] w-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-5 left-6 right-6 flex items-center gap-3 rounded-2xl border border-white/15 bg-navy-900/90 p-4 shadow-xl backdrop-blur sm:left-8">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lima text-navy-900">
+                <BoltIcon className="h-5 w-5" />
+              </span>
+              <p className="text-sm font-semibold text-white/85">
+                Instalación y puesta en marcha por ingenieros LUNAAN, con
+                servicio en sitio 24/7.
               </p>
-              <p className="mt-3 text-2xl font-bold leading-snug">
-                Respaldo y generación primaria para minería, salud, data centers e
-                industria.
-              </p>
-              <ul className="mt-6 space-y-3 text-sm text-white/80">
-                {[
-                  "Dimensionamiento según tu curva de carga",
-                  "Cabinas insonorizadas y bajas emisiones",
-                  "Monitoreo remoto IoT y mantenimiento predictivo",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-lima" />
-                    {t}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
