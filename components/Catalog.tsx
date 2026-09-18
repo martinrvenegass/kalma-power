@@ -5,9 +5,9 @@ import { COMPANY, waLink } from "@/lib/config";
 
 // Imagen de portada por rango (por id de POWER_RANGES)
 const RANGE_IMAGES: Record<string, string> = {
-  ligera: "https://images.unsplash.com/photo-1658260867231-535a1f7c98b9?w=1200&q=80&fit=crop",
-  industrial: "https://images.unsplash.com/photo-1780445392484-38a4852a1fd8?w=1200&q=80&fit=crop",
-  "alta-potencia": "https://images.unsplash.com/photo-1731244426166-4d230492b61a?w=1200&q=80&fit=crop",
+  ligera: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-10-50kw.png",
+  industrial: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-250-500kw.png",
+  "alta-potencia": "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-1000-2500kw.png",
 };
 
 export default function Catalog() {
