@@ -68,7 +68,7 @@ export default function Hero() {
           <div className="relative animate-fade-up [animation-delay:120ms]">
             <div className="overflow-hidden rounded-3xl border border-white/15 shadow-2xl">
               <img
-                src="https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-hero.png&fit=crop"
+                src="https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-hero.png"
                 alt="Planta eléctrica industrial en operación"
                 className="h-[420px] w-full object-cover"
               />
