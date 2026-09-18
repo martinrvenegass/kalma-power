@@ -14,7 +14,7 @@ export default function About() {
               Energía confiable, ingeniería sin concesiones
             </h2>
             <p className="mt-6 text-lg text-navy-900/70">
-              LUNAAN ENERGY es una compañía especializada en soluciones de
+              KALMA POWER es una compañía especializada en soluciones de
               generación eléctrica para la industria. Acompañamos a nuestros
               clientes desde el estudio de carga hasta la puesta en marcha y el
               servicio post-venta, con un enfoque premium y minimalista: lo
