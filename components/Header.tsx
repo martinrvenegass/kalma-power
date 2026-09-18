@@ -59,7 +59,7 @@ export default function Header() {
             {COMPANY.whatsappNumber}
           </a>
           <a
-            href={waLink("Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas.")}
+            href={waLink("Hola KALMA POWER, quiero información sobre plantas eléctricas.")}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
@@ -120,7 +120,7 @@ export default function Header() {
               Llamar {COMPANY.whatsappNumber}
             </a>
             <a
-              href={waLink("Hola LUNAAN ENERGY, quiero información sobre plantas eléctricas.")}
+              href={waLink("Hola KALMA POWER, quiero información sobre plantas eléctricas.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
