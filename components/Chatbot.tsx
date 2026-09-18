@@ -15,7 +15,7 @@ type Question = {
 
 // 8 preguntas de calificación de leads
 const QUESTIONS: Question[] = [
-  { id: "nombre", text: "¡Hola! Soy Luna, la asistente de LUNAAN ENERGY. ¿Con quién tengo el gusto?", freeText: true, placeholder: "Tu nombre" },
+  { id: "nombre", text: "¡Hola! Soy KALM, la asistente de KALMA POWER. ¿Con quién tengo el gusto?", freeText: true, placeholder: "Tu nombre" },
   { id: "empresa", text: "Un placer, {nombre}. ¿Para qué empresa u organización buscas la planta?", freeText: true, placeholder: "Nombre de la empresa" },
   {
     id: "industria",
@@ -92,7 +92,7 @@ export default function Chatbot() {
           ...m,
           {
             from: "bot",
-            text: `¡Gracias, ${nextAnswers.nombre?.split(" ")[0] || ""}! Con esta información un asesor de LUNAAN ENERGY preparará tu propuesta. Puedes enviarnos el resumen por WhatsApp ahora mismo:`,
+            text: `¡Gracias, ${nextAnswers.nombre?.split(" ")[0] || ""}! Con esta información un asesor de KALMA POWER preparará tu propuesta. Puedes enviarnos el resumen por WhatsApp ahora mismo:`,
           },
         ]);
         setStep(nextStep);
@@ -105,7 +105,7 @@ export default function Chatbot() {
   const summary = () => {
     const a = answers;
     return (
-      `Lead calificado — Chat LUNAAN ENERGY\n\n` +
+      `Lead calificado — Chat KALMA POWER\n\n` +
       `Nombre: ${a.nombre || "-"}\n` +
       `Empresa: ${a.empresa || "-"}\n` +
       `Industria: ${a.industria || "-"}\n` +
@@ -146,12 +146,12 @@ export default function Chatbot() {
         )}
       </button>
 
-      {/* Mini botón de llamada, junto al botón de Luna */}
+      {/* Mini botón de llamada, junto al botón de Kalma */}
       {!open && (
         <a
           href={telLink()}
           className="fixed bottom-24 right-5 z-[60] flex items-center gap-2 rounded-full border border-navy-900/10 bg-white px-3.5 py-2 text-xs font-bold text-navy-900 shadow-lg shadow-navy-900/20 transition hover:bg-sky-light"
-          aria-label={`Llamar a LUNAAN ENERGY: ${COMPANY.whatsappNumber}`}
+          aria-label={`Llamar a KALMA POWER: ${COMPANY.whatsappNumber}`}
         >
           <PhoneIcon className="h-4 w-4" />
           {COMPANY.whatsappNumber}
@@ -228,7 +228,7 @@ export default function Chatbot() {
                       WhatsApp
                     </a>
                     <a
-                      href={mailLink("Cotización LUNAAN ENERGY")}
+                      href={mailLink("Cotización KALMA POWER")}
                       className="flex flex-col items-center gap-1 rounded-lg border border-navy-900/15 py-2 text-[0.65rem] font-bold uppercase tracking-wide text-navy-900 transition hover:bg-sky-light"
                     >
                       <MailIcon className="h-4 w-4" />
