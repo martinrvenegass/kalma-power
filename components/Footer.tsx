@@ -6,7 +6,7 @@ const LINKS = [
   {
     title: "Compañía",
     items: [
-      { label: "Sobre Lunaan", href: "#sobre" },
+      { label: "Sobre Kalma", href: "#sobre" },
       { label: "Industrias", href: "#industrias" },
       { label: "Contacto", href: "#contacto" },
     ],
@@ -76,7 +76,7 @@ export default function Footer() {
                 {COMPANY.whatsappNumber}
               </a>
               <a
-                href={waLink("Hola LUNAAN ENERGY, quiero más información.")}
+                href={waLink("Hola KALMA POWER, quiero más información.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 text-sm font-bold text-lima"
@@ -110,7 +110,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/12 py-6 sm:flex-row">
           <p className="text-xs text-white/50">
-            © {new Date().getFullYear()} LUNAAN ENERGY. Todos los derechos reservados.
+            © {new Date().getFullYear()} KALMA POWER. Todos los derechos reservados.
           </p>
           <div className="flex gap-3">
             <Social label="LinkedIn" path="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z" />
