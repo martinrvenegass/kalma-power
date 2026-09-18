@@ -28,12 +28,12 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
       </span>
       <span className="flex flex-col leading-none">
         <span className={`text-lg font-extrabold tracking-tight ${textColor}`}>
-          LUNAAN
+          KALMA
         </span>
         <span
           className={`text-[0.65rem] font-bold uppercase tracking-[0.35em] ${subColor}`}
         >
-          Energy
+          POWER
         </span>
       </span>
     </span>
