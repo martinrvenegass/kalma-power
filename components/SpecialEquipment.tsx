@@ -5,14 +5,14 @@ import { COMPANY, waLink } from "@/lib/config";
 
 // Imagen por categoría de equipo especial (por id real de SPECIAL_EQUIPMENT.categories)
 const EQUIPMENT_IMAGES: Record<string, string> = {
-  sincronia: "https://images.unsplash.com/photo-1554231063-fef7ed86c0b7?w=800&q=80&fit=crop",
-  control: "https://images.unsplash.com/photo-1554231063-fef7ed86c0b7?w=800&q=80&fit=crop",
-  combustible: "https://images.unsplash.com/photo-1636867900334-025210ac78a0?w=800&q=80&fit=crop",
-  ventilacion: "https://images.unsplash.com/photo-1636867900334-025210ac78a0?w=800&q=80&fit=crop",
-  casetas: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-equipos-especiales-2.png",
-  acabados: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-equipos-especiales-2.png",
-  electrico: "https://images.unsplash.com/photo-1783753445514-b09b4017aae3?w=800&q=80&fit=crop",
-  ingenieria: "https://images.unsplash.com/photo-1783753445514-b09b4017aae3?w=800&q=80&fit=crop",
+  sincronia: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-01_sincronia_operacion_paralelo.png",
+  control: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-07_control_comunicacion_monitoreo.png",
+  combustible: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-02_autonomia_combustible.png",
+  ventilacion: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-04_ventilacion_manejo_termico.png",
+  casetas: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-03_casetas_especiales.png",
+  acabados: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-05_acabados_proteccion.png",
+  electrico: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-06_configuraciones_electricas_especiales.png",
+  ingenieria: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-08_ingenieria_especial.png",
 };
 
 export default function SpecialEquipment() {
