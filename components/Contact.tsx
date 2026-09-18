@@ -14,7 +14,7 @@ export default function Contact() {
             <span className="section-eyebrow">Cotización</span>
             <h2 className="section-title">Recibe tu propuesta en 24 horas</h2>
             <p className="mt-5 text-lg text-navy-900/70">
-              Cuéntanos qué necesitas y un ingeniero de LUNAAN ENERGY preparará una
+              Cuéntanos qué necesitas y un ingeniero de KALMA POWER preparará una
               cotización con la planta adecuada, tablero de transferencia y plan de
               servicio.
             </p>
@@ -55,7 +55,7 @@ export default function Contact() {
             <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
               <a
                 href={waLink(
-                  "Hola LUNAAN ENERGY, quiero hablar con un asesor sobre plantas eléctricas."
+                  "Hola KALMA POWER, quiero hablar con un asesor sobre plantas eléctricas."
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +74,7 @@ export default function Contact() {
                   Llamar
                 </a>
                 <a
-                  href={mailLink("Cotización LUNAAN ENERGY")}
+                  href={mailLink("Cotización KALMA POWER")}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/70 transition hover:text-lima"
                 >
                   <MailIcon className="h-3.5 w-3.5" />
