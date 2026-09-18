@@ -10,18 +10,18 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lunaanenergy.com"),
-  title: "LUNAAN ENERGY | Plantas eléctricas 10 kW – 2500 kW",
+  title: "KALMA POWER | Plantas eléctricas 10 kW – 2500 kW",
   description:
-    "LUNAAN ENERGY diseña, instala y da servicio a plantas eléctricas industriales de 10 kW a 2500 kW para minería, hotelería, data centers, hospitales, construcción y manufactura.",
+    "KALMA POWER diseña, instala y da servicio a plantas eléctricas industriales de 10 kW a 2500 kW para minería, hotelería, data centers, hospitales, construcción y manufactura.",
   keywords: [
     "plantas eléctricas",
     "generadores industriales",
     "energía de respaldo",
     "grupos electrógenos",
-    "LUNAAN ENERGY",
+    "KALMA POWER",
   ],
   openGraph: {
-    title: "LUNAAN ENERGY | El futuro es la energía",
+    title: "KALMA POWER | El futuro es la energía",
     description:
       "Plantas eléctricas de 10 kW a 2500 kW. Ingeniería, instalación y servicio para la industria.",
     type: "website",
