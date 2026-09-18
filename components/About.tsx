@@ -9,7 +9,7 @@ export default function About() {
       <div className="container-lun relative">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <span className="section-eyebrow">Sobre Lunaan</span>
+            <span className="section-eyebrow">Sobre Kalma</span>
             <h2 className="section-title">
               Energía confiable, ingeniería sin concesiones
             </h2>
