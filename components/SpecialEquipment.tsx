@@ -76,7 +76,7 @@ export default function SpecialEquipment() {
           <div className="shrink-0 text-center">
             <a
               href={waLink(
-                "Hola LUNAAN ENERGY, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?"
+                "Hola KALMA POWER, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?"
               )}
               target="_blank"
               rel="noopener noreferrer"
