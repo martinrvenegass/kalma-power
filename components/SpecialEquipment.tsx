@@ -9,8 +9,8 @@ const EQUIPMENT_IMAGES: Record<string, string> = {
   control: "https://images.unsplash.com/photo-1554231063-fef7ed86c0b7?w=800&q=80&fit=crop",
   combustible: "https://images.unsplash.com/photo-1636867900334-025210ac78a0?w=800&q=80&fit=crop",
   ventilacion: "https://images.unsplash.com/photo-1636867900334-025210ac78a0?w=800&q=80&fit=crop",
-  casetas: "https://images.unsplash.com/photo-1705051278299-7e64ba21437a?w=800&q=80&fit=crop",
-  acabados: "https://images.unsplash.com/photo-1705051278299-7e64ba21437a?w=800&q=80&fit=crop",
+  casetas: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-equipos-especiales-2.png",
+  acabados: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-equipos-especiales-2.png",
   electrico: "https://images.unsplash.com/photo-1783753445514-b09b4017aae3?w=800&q=80&fit=crop",
   ingenieria: "https://images.unsplash.com/photo-1783753445514-b09b4017aae3?w=800&q=80&fit=crop",
 };
