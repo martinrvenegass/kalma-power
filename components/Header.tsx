@@ -6,7 +6,7 @@ import { WhatsAppIcon, PhoneIcon } from "./icons";
 import { COMPANY, waLink, telLink } from "@/lib/config";
 
 const NAV = [
-  { label: "Sobre Lunaan", href: "#sobre" },
+  { label: "Sobre Kalma", href: "#sobre" },
   { label: "Catálogo", href: "#catalogo" },
   { label: "Equipos especiales", href: "#equipos" },
   { label: "Industrias", href: "#industrias" },
