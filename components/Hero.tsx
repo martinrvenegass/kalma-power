@@ -70,7 +70,7 @@ export default function Hero() {
               <img
                 src="https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-hero.png"
                 alt="Planta eléctrica industrial en operación"
-                className="h-[420px] w-full object-cover"
+                className="h-48 w-full object-cover sm:h-60 lg:h-96"
               />
             </div>
             <div className="absolute -bottom-5 left-6 right-6 flex items-center gap-3 rounded-2xl border border-white/15 bg-navy-900/90 p-4 shadow-xl backdrop-blur sm:left-8">
