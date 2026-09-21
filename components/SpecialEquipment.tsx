@@ -5,14 +5,14 @@ import { COMPANY, waLink } from "@/lib/config";
 
 // Imagen por categoría de equipo especial (por id real de SPECIAL_EQUIPMENT.categories)
 const EQUIPMENT_IMAGES: Record<string, string> = {
-  sincronia: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-01_sincronia_operacion_paralelo.png",
-  control: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-07_control_comunicacion_monitoreo.png",
-  combustible: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-02_autonomia_combustible.png",
-  ventilacion: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-04_ventilacion_manejo_termico.png",
-  casetas: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-03_casetas_especiales.png",
-  acabados: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-05_acabados_proteccion.png",
-  electrico: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-06_configuraciones_electricas_especiales.png",
-  ingenieria: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/kalma-08_ingenieria_especial.png",
+  sincronia: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/01_sincronia_operacion_paralelo.png",
+  control: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/07_control_comunicacion_monitoreo.png",
+  combustible: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/02_autonomia_combustible.png",
+  ventilacion: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/04_ventilacion_manejo_termico.png",
+  casetas: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/03_casetas_especiales.png",
+  acabados: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/05_acabados_proteccion.png",
+  electrico: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/06_configuraciones_electricas_especiales.png",
+  ingenieria: "https://raw.githubusercontent.com/martinrvenegass/kalma-power/main/public/images/08_ingenieria_especial.png",
 };
 
 export default function SpecialEquipment() {
