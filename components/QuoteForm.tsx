@@ -42,7 +42,7 @@ export default function QuoteForm() {
     const e: Partial<Record<keyof FormState, string>> = {};
     if (!form.nombre.trim()) e.nombre = "Ingresa tu nombre";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Correo no válido";
-    if (!isValidPhone(form.telefono)) e.telefono = "Teléfono no válido, ej. +52 564 181 9907";
+    if (!isValidPhone(form.telefono)) e.telefono = "Teléfono no válido, ej. +52 55 1234 5678";
     if (!form.potencia) e.potencia = "Selecciona una potencia";
     if (!form.industria) e.industria = "Selecciona una industria";
     setErrors(e);
@@ -71,9 +71,8 @@ export default function QuoteForm() {
           ¡Gracias, {form.nombre.split(" ")[0]}!
         </h3>
         <p className="mt-2 text-sm text-navy-900/65">
-          Recibimos tu solicitud para una planta de {form.potencia} en el sector{" "}
-          {form.industria}. Un asesor te contactará al {form.telefono} en breve. Si
-          se abrió WhatsApp, puedes enviar el mensaje ya redactado.
+          Para completar tu solicitud, envía el mensaje que se abrió en WhatsApp.
+          Si no se abrió, usa el botón de abajo.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a
@@ -146,7 +145,7 @@ export default function QuoteForm() {
             className={`${field} ${errors.telefono ? "border-red-400" : "border-navy-900/15"}`}
             value={form.telefono}
             onChange={(e) => update("telefono", e.target.value)}
-            placeholder="+52 564 181 9907"
+            placeholder="+52 55 1234 5678"
             autoComplete="tel"
           />
           {errors.telefono && <p className="mt-1 text-xs text-red-500">{errors.telefono}</p>}
@@ -214,7 +213,7 @@ export default function QuoteForm() {
         <ArrowIcon />
       </button>
       <p className="mt-3 text-xs text-navy-900/50">
-        Al enviar aceptas ser contactado por LUNAAN ENERGY. No compartimos tus datos.
+        Al enviar aceptas ser contactado por KALMA POWER. No compartimos tus datos.
       </p>
     </form>
   );

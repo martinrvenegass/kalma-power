@@ -3,8 +3,8 @@ import { waLink, telLink } from "@/lib/config";
 
 const STATS = [
   { value: "10–2500", label: "kW por planta" },
-  { value: "24/7", label: "Servicio en sitio" },
-  { value: "<10 s", label: "Transferencia automática" },
+  { value: "Multimarca", label: "Distintas marcas y motores" },
+  { value: "Nacional", label: "Cobertura en México" },
 ];
 
 export default function Hero() {
@@ -32,8 +32,9 @@ export default function Hero() {
               El futuro es <span className="text-lima">la energía</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80">
-              Generadores diésel de 10 a 2500 kW. Respaldo confiable,
-              instalación rápida y soporte 24/7 en todo México.
+              Plantas eléctricas diésel de 10 a 2500 kW, de distintas marcas. Te
+              ayudamos a encontrar la opción adecuada para tu operación,
+              presupuesto y aplicación, con cobertura en México.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">

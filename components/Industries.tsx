@@ -11,8 +11,8 @@ export default function Industries() {
           <span className="section-eyebrow">Industrias</span>
           <h2 className="section-title">Soluciones por sector</h2>
           <p className="mt-5 text-lg text-navy-900/70">
-            Adaptamos la ingeniería, la cabina y el plan de servicio al contexto
-            real de cada industria.
+            Te asesoramos para elegir la capacidad, la caseta y la configuración
+            adecuadas al contexto real de tu industria.
           </p>
         </div>
 

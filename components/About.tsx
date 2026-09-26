@@ -11,14 +11,13 @@ export default function About() {
           <div>
             <span className="section-eyebrow">Sobre Kalma</span>
             <h2 className="section-title">
-              Energía confiable, ingeniería sin concesiones
+              La planta correcta para tu operación
             </h2>
             <p className="mt-6 text-lg text-navy-900/70">
-              KALMA POWER es una compañía especializada en soluciones de
-              generación eléctrica para la industria. Acompañamos a nuestros
-              clientes desde el estudio de carga hasta la puesta en marcha y el
-              servicio post-venta, con un enfoque premium y minimalista: lo
-              esencial, hecho impecablemente.
+              KALMA POWER comercializa plantas eléctricas diésel para
+              aplicaciones industriales, comerciales y de respaldo. Te asesoramos
+              para seleccionar el equipo adecuado de acuerdo con la potencia,
+              aplicación y condiciones de cada proyecto.
             </p>
             <p className="mt-4 text-lg text-navy-900/70">
               Trabajamos con plantas de 10 kW a 2500 kW, en configuraciones de
@@ -26,7 +25,7 @@ export default function About() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-              {["+200 proyectos", "Cobertura nacional", "Refacciones garantizadas"].map(
+              {["Distintas marcas", "10 a 2500 kW", "Cobertura en México"].map(
                 (t) => (
                   <span
                     key={t}

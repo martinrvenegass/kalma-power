@@ -22,8 +22,9 @@ export default function Catalog() {
           </h2>
           <p className="mt-5 text-lg text-white/70">
             Potencias desde 10 kW hasta 2500 kW en motores{" "}
-            {ENGINE_BRANDS.join(", ")}. Cada planta se entrega calibrada, con
-            tablero de transferencia y plan de mantenimiento. ¿No sabes qué
+            {ENGINE_BRANDS.join(", ")}. Te ayudamos a elegir la configuración
+            adecuada, incluyendo voltaje, tablero de transferencia y caseta, según
+            tu aplicación. ¿No sabes qué
             capacidad necesitas? Te ayudamos a dimensionarla.
           </p>
         </div>

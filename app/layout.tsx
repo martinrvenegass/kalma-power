@@ -9,10 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lunaanenergy.com"),
-  title: "KALMA POWER | Plantas eléctricas 10 kW – 2500 kW",
+  metadataBase: new URL("https://kalmapower.com"),
+  title: "KALMA POWER | Plantas eléctricas diésel de 10 a 2500 kW",
   description:
-    "KALMA POWER diseña, instala y da servicio a plantas eléctricas industriales de 10 kW a 2500 kW para minería, hotelería, data centers, hospitales, construcción y manufactura.",
+    "KALMA POWER comercializa plantas eléctricas diésel de 10 a 2500 kW, de distintas marcas, para aplicaciones industriales, comerciales y de respaldo.",
   keywords: [
     "plantas eléctricas",
     "generadores industriales",
@@ -20,12 +20,25 @@ export const metadata: Metadata = {
     "grupos electrógenos",
     "KALMA POWER",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "KALMA POWER | El futuro es la energía",
+    title: "KALMA POWER | Plantas eléctricas diésel",
     description:
-      "Plantas eléctricas de 10 kW a 2500 kW. Ingeniería, instalación y servicio para la industria.",
+      "Plantas eléctricas diésel de 10 a 2500 kW para aplicaciones industriales, comerciales y de respaldo. Equipos de distintas marcas.",
+    url: "https://kalmapower.com",
+    siteName: "KALMA POWER",
     type: "website",
     locale: "es_MX",
+    images: [
+      {
+        url: "/images/kalma-hero.png",
+        width: 1672,
+        height: 941,
+        alt: "Planta eléctrica diésel KALMA POWER",
+      },
+    ],
   },
 };
 

@@ -12,17 +12,16 @@ export default function Contact() {
         <div className="container-lun relative grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
             <span className="section-eyebrow">Cotización</span>
-            <h2 className="section-title">Recibe tu propuesta en 24 horas</h2>
+            <h2 className="section-title">Solicita tu cotización sin compromiso</h2>
             <p className="mt-5 text-lg text-navy-900/70">
-              Cuéntanos qué necesitas y un ingeniero de KALMA POWER preparará una
-              cotización con la planta adecuada, tablero de transferencia y plan de
-              servicio.
+              Cuéntanos qué necesitas y un asesor de KALMA POWER te ayudará a
+              definir la planta adecuada y te enviará tu cotización.
             </p>
             <ul className="mt-8 space-y-4">
               {[
-                "Asesoría técnica sin costo",
-                "Opciones de compra, renta y renta con opción a compra",
-                "Entrega e instalación en toda la república",
+                "Asesoría para seleccionar tu equipo",
+                "Distintas marcas y capacidades",
+                "Coordinamos el envío a toda la República",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3 text-navy-900/80">
                   <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-lima" />
@@ -49,7 +48,7 @@ export default function Contact() {
                 Habla ahora con un asesor por WhatsApp
               </h2>
               <p className="mt-3 text-white/70">
-                {COMPANY.whatsappNumber} · Lun a Sáb 8:00–19:00 · Respuesta inmediata
+                {COMPANY.whatsappNumber}
               </p>
             </div>
             <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">

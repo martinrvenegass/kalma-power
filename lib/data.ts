@@ -65,7 +65,6 @@ export const POWER_RANGES: PowerRange[] = [
           { label: "Caseta", value: "Insonorizada · acero galvanizado" },
           { label: "Antivibración", value: "Amortiguadores motor–base" },
           { label: "Incluye", value: "Baterías, cargador y sistema de escape" },
-          { label: "Garantía", value: "1 año o 1200 h de operación" },
         ],
       },
       {
@@ -91,7 +90,6 @@ export const POWER_RANGES: PowerRange[] = [
           { label: "Herrajes", value: "Acero galvanizado" },
           { label: "Antivibración", value: "Amortiguadores motor–base" },
           { label: "Incluye", value: "Baterías, cargador y sistema de escape" },
-          { label: "Garantía", value: "1 año o 1200 h de operación" },
         ],
       },
     ],
@@ -126,8 +124,6 @@ export const POWER_RANGES: PowerRange[] = [
           { label: "Caseta", value: "Insonorizada · acero galvanizado" },
           { label: "Antivibración", value: "Amortiguadores motor–base" },
           { label: "Incluye", value: "Baterías, cargador, escape y precalentador" },
-          { label: "Emisiones", value: "Compatible Tier 3" },
-          { label: "Garantía", value: "1 año o 1200 h de operación" },
         ],
       },
       {
@@ -150,8 +146,6 @@ export const POWER_RANGES: PowerRange[] = [
           { label: "Caseta", value: "Insonorizada · acero galvanizado o contenedor" },
           { label: "Antivibración", value: "Amortiguadores motor–base" },
           { label: "Incluye", value: "Baterías, cargador, precalentador y sistema de escape" },
-          { label: "Emisiones", value: "Tier 3 / Stage IIIA" },
-          { label: "Garantía", value: "1 año o 1200 h de operación" },
         ],
       },
     ],
@@ -172,7 +166,7 @@ export const POWER_RANGES: PowerRange[] = [
         title: "Planta Master 1000 kW",
         fuel: "Diésel",
         description:
-          "Potencia de misión crítica de 1000 kW con sincronización en paralelo, load sharing y monitoreo remoto 24/7.",
+          "Potencia de misión crítica de 1000 kW con sincronización en paralelo y load sharing.",
         sectors: "Minería · Data Center · Utilities",
         specs: [
           { label: "Potencia", value: "1000 kW · ISO 8528" },
@@ -186,8 +180,6 @@ export const POWER_RANGES: PowerRange[] = [
           { label: "Formato", value: "Contenedor 20' / 40' o instalación interior" },
           { label: "Enfriamiento", value: "Radiador reforzado / remoto" },
           { label: "Monitoreo", value: "SCADA / Modbus / Ethernet" },
-          { label: "Emisiones", value: "Tier 3 / Stage IIIA" },
-          { label: "Garantía", value: "1 año o 1200 h de operación" },
         ],
       },
       {
@@ -196,7 +188,7 @@ export const POWER_RANGES: PowerRange[] = [
         title: "Planta Titán 2500 kW",
         fuel: "Diésel",
         description:
-          "Generación primaria de 2500 kW para minería, oil & gas y campamentos aislados de la red. Configuración N+1 y servicio in situ.",
+          "Generación primaria de 2500 kW para minería, oil & gas y campamentos aislados de la red. Configuración N+1 disponible.",
         sectors: "Minería · Oil & Gas · Campamentos",
         specs: [
           { label: "Potencia", value: "2500 kW · ISO 8528" },
@@ -210,8 +202,6 @@ export const POWER_RANGES: PowerRange[] = [
           { label: "Enfriamiento", value: "Radiador remoto / alta temperatura" },
           { label: "Redundancia", value: "N+1 configurable" },
           { label: "Monitoreo", value: "SCADA / BMS · alarmas remotas" },
-          { label: "Servicio", value: "Mantenimiento in situ" },
-          { label: "Garantía", value: "1 año o 1200 h de operación" },
         ],
       },
     ],
@@ -337,21 +327,20 @@ export const SPECIAL_EQUIPMENT = {
     {
       id: "ingenieria",
       icon: "engineering",
-      title: "Ingeniería especial",
+      title: "Adaptaciones especiales",
       items: [
-        "Diseño de sistemas de escape y silenciadores especiales",
+        "Sistemas de escape y silenciadores especiales",
         "Precalentadores de motor y calentadores de anticongelante",
         "Sistemas de arranque redundantes",
         "Radiadores remotos",
         "Bases y estructuras especiales",
-        "Ingeniería de instalación y adecuación al sitio",
         "Soluciones para altitud, temperatura, humedad y condiciones ambientales particulares",
       ],
     },
   ] as SpecialCategory[],
   closing: {
     title: "¿Tu proyecto requiere algo diferente?",
-    text: "Diseñamos la configuración del generador, sistema eléctrico, autonomía, caseta y auxiliares de acuerdo con las condiciones y requerimientos específicos de tu instalación.",
+    text: "Te asesoramos para definir la configuración del generador, autonomía, caseta y auxiliares según las condiciones de tu proyecto, y la gestionamos con el proveedor.",
   },
 };
 
@@ -383,7 +372,7 @@ export const INDUSTRIES: Industry[] = [
     name: "Data Center",
     slug: "data-center",
     description:
-      "Respaldo de misión crítica con transferencia automática y redundancia N+1 para uptime garantizado.",
+      "Respaldo de misión crítica con transferencia automática y redundancia N+1 para operación continua.",
     icon: "server",
   },
   {
@@ -397,7 +386,7 @@ export const INDUSTRIES: Industry[] = [
     name: "Hospital",
     slug: "hospital",
     description:
-      "Cumplimiento normativo de continuidad eléctrica para quirófanos, UCI y equipos de soporte vital.",
+      "Respaldo eléctrico para instalaciones hospitalarias y de salud.",
     icon: "hospital",
   },
   {
@@ -411,19 +400,19 @@ export const INDUSTRIES: Industry[] = [
 
 export const DIFERENCIADORES = [
   {
-    title: "Ingeniería a la medida",
-    text: "Dimensionamos cada planta según tu curva de carga real, no catálogos genéricos.",
+    title: "Asesoría a la medida",
+    text: "Te ayudamos a elegir la capacidad según tu carga real, no con catálogos genéricos.",
   },
   {
-    title: "Respuesta 24/7",
-    text: "Red de servicio y refacciones con atención garantizada en sitio.",
+    title: "Multimarca",
+    text: "Distintas marcas y capacidades para encontrar la mejor opción técnica y de precio.",
   },
   {
-    title: "Eficiencia y bajas emisiones",
-    text: "Motores Tier 3 / Stage IIIA con menor consumo de combustible por kWh.",
+    title: "Para cada aplicación",
+    text: "Respaldo, operación continua y configuraciones especiales.",
   },
   {
-    title: "Monitoreo inteligente",
-    text: "Telemetría IoT para anticipar mantenimientos y evitar fallas.",
+    title: "Acompañamiento hasta el suministro",
+    text: "Te acompañamos en la cotización, confirmación del equipo y envío.",
   },
 ];
