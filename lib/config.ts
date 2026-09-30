@@ -8,8 +8,9 @@ export const COMPANY = {
   email: "info@kalmapower.com",
 };
 
-export function waLink(message: string) {
-  return `https://wa.me/${COMPANY.whatsappLink}?text=${encodeURIComponent(message)}`;
+// Los CTA pasan por /whatsapp, que redirige al WhatsApp Business oficial.
+export function waLink(message: string, src = "web") {
+  return `/whatsapp?src=${encodeURIComponent(src)}&text=${encodeURIComponent(message)}`;
 }
 
 export function telLink() {
