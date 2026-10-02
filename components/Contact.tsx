@@ -15,13 +15,12 @@ export default function Contact() {
             <h2 className="section-title">Solicita tu cotización sin compromiso</h2>
             <p className="mt-5 text-lg text-navy-900/70">
               Cuéntanos qué necesitas y un asesor de KALMA POWER te ayudará a
-              definir la planta adecuada y te enviará tu cotización.
+              definir la planta adecuada.
             </p>
             <ul className="mt-8 space-y-4">
               {[
                 "Asesoría para seleccionar tu equipo",
                 "Distintas marcas y capacidades",
-                "Coordinamos el envío a toda la República",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3 text-navy-900/80">
                   <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-lima" />

@@ -5,125 +5,117 @@ import { CloseIcon, WhatsAppIcon, ArrowIcon, PhoneIcon, MailIcon } from "./icons
 import Logo from "./Logo";
 import { COMPANY, waLink, telLink, mailLink } from "@/lib/config";
 
-type Question = {
-  id: string;
-  text: string;
-  options?: string[];
-  freeText?: boolean;
-  placeholder?: string;
-};
+type Stage = "purpose" | "kind" | "detail" | "done";
+type Kind = "potencia" | "cargas" | "no-se" | "cotizacion";
 
-// 8 preguntas de calificación de leads
-const QUESTIONS: Question[] = [
-  { id: "nombre", text: "¡Hola! Soy KALM, la asistente de KALMA POWER. ¿Con quién tengo el gusto?", freeText: true, placeholder: "Tu nombre" },
-  { id: "empresa", text: "Un placer, {nombre}. ¿Para qué empresa u organización buscas la planta?", freeText: true, placeholder: "Nombre de la empresa" },
-  {
-    id: "industria",
-    text: "¿A qué sector pertenece?",
-    options: ["Minería", "Hotelería", "Data Center", "Construcción", "Hospital", "Manufactura", "Otro"],
-  },
-  {
-    id: "potencia",
-    text: "¿Qué rango de potencia necesitas? (o indícame la potencia exacta)",
-    options: ["10 – 50 kW", "250 – 500 kW", "1000 – 2500 kW", "Potencia exacta (la indico)", "No estoy seguro"],
-  },
-  {
-    id: "uso",
-    text: "¿El uso será como energía principal (continua) o de respaldo (emergencia)?",
-    options: ["Energía principal / continua", "Respaldo / emergencia", "Ambos"],
-  },
-  {
-    id: "plazo",
-    text: "¿En qué plazo necesitas tener la planta operando?",
-    options: ["Inmediato (0–1 mes)", "1–3 meses", "3–6 meses", "Solo estoy cotizando"],
-  },
-  {
-    id: "modalidad",
-    text: "¿Qué modalidad te interesa?",
-    options: ["Compra", "Renta", "Renta con opción a compra", "Aún no lo sé"],
-  },
-  { id: "contacto", text: "Por último, ¿a qué correo o teléfono te enviamos la propuesta?", freeText: true, placeholder: "correo@empresa.com / teléfono" },
+// Opciones que el cliente ve (la clasificación interna no se muestra).
+const KINDS: { id: Kind; label: string }[] = [
+  { id: "potencia", label: "Ya sé la potencia que necesito" },
+  { id: "cargas", label: "Sé qué equipos quiero respaldar" },
+  { id: "no-se", label: "No sé qué planta necesito" },
+  { id: "cotizacion", label: "Ya tengo una cotización y quiero comparar" },
 ];
+
+const GREETING =
+  "¡Hola! Soy KALM, la asistente de KALMA POWER. Cuéntame, ¿para qué necesitas la planta?";
 
 type Msg = { from: "bot" | "user"; text: string };
 
+const withPeriod = (t: string) => (/[.!?]$/.test(t) ? t : `${t}.`);
+
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [stage, setStage] = useState<Stage>("purpose");
+  const [purpose, setPurpose] = useState("");
+  const [kind, setKind] = useState<Kind | null>(null);
+  const [detail, setDetail] = useState("");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
-  const [done, setDone] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Inicializa el primer mensaje al abrir
   useEffect(() => {
     if (open && messages.length === 0) {
-      setMessages([{ from: "bot", text: QUESTIONS[0].text }]);
+      setMessages([{ from: "bot", text: GREETING }]);
     }
   }, [open, messages.length]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages, done]);
+  }, [messages, stage]);
 
-  const current = QUESTIONS[step];
+  const say = (from: Msg["from"], text: string) =>
+    setMessages((m) => [...m, { from, text }]);
 
-  const advance = (value: string) => {
-    const q = QUESTIONS[step];
-    const nextAnswers = { ...answers, [q.id]: value };
-    setAnswers(nextAnswers);
-    setMessages((m) => [...m, { from: "user", text: value }]);
+  const reply = (text: string, next: Stage) =>
+    setTimeout(() => {
+      say("bot", text);
+      setStage(next);
+    }, 350);
 
-    const nextStep = step + 1;
-    if (nextStep < QUESTIONS.length) {
-      const nextQ = QUESTIONS[nextStep];
-      const text = nextQ.text.replace(
-        "{nombre}",
-        nextAnswers.nombre?.split(" ")[0] || ""
-      );
-      setTimeout(() => {
-        setMessages((m) => [...m, { from: "bot", text }]);
-        setStep(nextStep);
-      }, 350);
-    } else {
-      setTimeout(() => {
-        setMessages((m) => [
-          ...m,
-          {
-            from: "bot",
-            text: `¡Gracias, ${nextAnswers.nombre?.split(" ")[0] || ""}! Con esta información un asesor de KALMA POWER preparará tu propuesta. Puedes enviarnos el resumen por WhatsApp ahora mismo:`,
-          },
-        ]);
-        setStep(nextStep);
-        setDone(true);
-      }, 350);
-    }
+  const submitPurpose = (value: string) => {
+    setPurpose(value);
+    say("user", value);
     setInput("");
+    reply("Gracias. ¿Cuál de estas opciones se parece más a tu caso?", "kind");
   };
 
+  const chooseKind = (k: (typeof KINDS)[number]) => {
+    setKind(k.id);
+    say("user", k.label);
+    if (k.id === "potencia") {
+      reply("Perfecto. ¿Qué potencia necesitas? Escribe el valor, por ejemplo 100 kW.", "detail");
+    } else if (k.id === "cargas") {
+      reply("Entendido. ¿Qué equipos quieres respaldar? Por ejemplo bombas, refrigeración o un elevador.", "detail");
+    } else if (k.id === "no-se") {
+      reply("No te preocupes, eso lo vemos juntos por WhatsApp.", "done");
+    } else {
+      reply("Perfecto. Por WhatsApp podrás compartirla para revisarla.", "done");
+    }
+  };
+
+  const submitDetail = (value: string) => {
+    setDetail(value);
+    say("user", value);
+    setInput("");
+    reply("Gracias. Continúa en WhatsApp para hablar con un asesor de KALMA POWER.", "done");
+  };
+
+  // Mensaje que llega a WhatsApp: escrito como lo diría una persona.
+  // Si el cliente ya dijo el dato en su primera respuesta, no se repite.
   const summary = () => {
-    const a = answers;
-    return (
-      `Lead calificado — Chat KALMA POWER\n\n` +
-      `Nombre: ${a.nombre || "-"}\n` +
-      `Empresa: ${a.empresa || "-"}\n` +
-      `Industria: ${a.industria || "-"}\n` +
-      `Potencia: ${a.potencia || "-"}\n` +
-      `Uso: ${a.uso || "-"}\n` +
-      `Plazo: ${a.plazo || "-"}\n` +
-      `Modalidad: ${a.modalidad || "-"}\n` +
-      `Contacto: ${a.contacto || "-"}`
-    );
+    const p = purpose.trim();
+    const d = detail.trim().replace(/[.!?]$/, "");
+    const mentioned = (t: string) => p.toLowerCase().includes(t.toLowerCase());
+    const base = `Hola KALMA POWER. ${withPeriod(p)}`;
+    if (kind === "potencia" && d) {
+      return mentioned(d) ? base : `${base} La potencia que tengo en mente es ${d}.`;
+    }
+    if (kind === "cargas" && d) {
+      return mentioned(d)
+        ? `${base} Todavía no sé qué potencia necesito.`
+        : `${base} Quiero respaldar ${d}, pero todavía no sé qué potencia necesito.`;
+    }
+    if (kind === "no-se") {
+      return `${base} Todavía no sé qué planta necesito y me gustaría que me orienten.`;
+    }
+    if (kind === "cotizacion") {
+      return /cotiz/i.test(p) ? base : `${base} Ya tengo una cotización y quiero compararla.`;
+    }
+    return base;
   };
 
   const reset = () => {
-    setStep(0);
-    setAnswers({});
-    setMessages([{ from: "bot", text: QUESTIONS[0].text }]);
-    setDone(false);
+    setStage("purpose");
+    setPurpose("");
+    setKind(null);
+    setDetail("");
+    setMessages([{ from: "bot", text: GREETING }]);
     setInput("");
   };
+
+  const done = stage === "done";
+  const typing = stage === "purpose" || stage === "detail";
 
   return (
     <>
@@ -171,7 +163,7 @@ export default function Chatbot() {
             </button>
           </div>
           <div className="bg-lima px-4 py-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-navy-900">
-            Asistente IA · Calificación en 8 pasos
+            Asistente virtual
           </div>
 
           {/* Mensajes */}
@@ -202,7 +194,7 @@ export default function Chatbot() {
                   className="btn-primary w-full !py-2.5 text-xs"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
-                  Enviar resumen por WhatsApp
+                  Continuar en WhatsApp
                 </a>
 
                 <div className="rounded-xl border border-navy-900/10 bg-white p-3">
@@ -248,48 +240,57 @@ export default function Chatbot() {
           </div>
 
           {/* Input / opciones */}
-          {!done && current && (
+          {!done && (
             <div className="border-t border-navy-900/10 bg-white p-3">
-              {current.options ? (
+              {stage === "kind" ? (
                 <div className="flex flex-wrap gap-2">
-                  {current.options.map((opt) => (
+                  {KINDS.map((k) => (
                     <button
-                      key={opt}
-                      onClick={() => advance(opt)}
+                      key={k.id}
+                      onClick={() => chooseKind(k)}
                       className="rounded-full border border-navy-700/30 bg-white px-3 py-1.5 text-xs font-semibold text-navy-700 transition hover:bg-navy-700 hover:text-white"
                     >
-                      {opt}
+                      {k.label}
                     </button>
                   ))}
                 </div>
               ) : (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    if (input.trim()) advance(input.trim());
-                  }}
-                  className="flex items-center gap-2"
-                >
-                  <input
-                    autoFocus
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder={current.placeholder || "Escribe tu respuesta…"}
-                    className="flex-1 rounded-full border border-navy-900/15 px-4 py-2 text-sm outline-none focus:border-navy-700"
-                  />
-                  <button
-                    type="submit"
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-700 text-white disabled:opacity-40"
-                    disabled={!input.trim()}
-                    aria-label="Enviar"
+                typing && (
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const v = input.trim();
+                      if (!v) return;
+                      if (stage === "purpose") submitPurpose(v);
+                      else submitDetail(v);
+                    }}
+                    className="flex items-center gap-2"
                   >
-                    <ArrowIcon />
-                  </button>
-                </form>
+                    <input
+                      autoFocus
+                      value={input}
+                      maxLength={300}
+                      onChange={(e) => setInput(e.target.value)}
+                      placeholder={
+                        stage === "purpose"
+                          ? "Ej. Necesito una planta de emergencia para mi negocio"
+                          : kind === "potencia"
+                            ? "Ej. 100 kW"
+                            : "Ej. bombas y refrigeración"
+                      }
+                      className="flex-1 rounded-full border border-navy-900/15 px-4 py-2 text-sm outline-none focus:border-navy-700"
+                    />
+                    <button
+                      type="submit"
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-700 text-white disabled:opacity-40"
+                      disabled={!input.trim()}
+                      aria-label="Enviar"
+                    >
+                      <ArrowIcon />
+                    </button>
+                  </form>
+                )
               )}
-              <p className="mt-2 text-center text-[0.65rem] text-navy-900/40">
-                Paso {Math.min(step + 1, QUESTIONS.length)} de {QUESTIONS.length}
-              </p>
             </div>
           )}
         </div>
