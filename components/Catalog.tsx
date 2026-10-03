@@ -125,7 +125,8 @@ export default function Catalog() {
 
                     <a
                       href={waLink(
-                        `Hola KALMA POWER, me interesa la planta de ${m.power} (${m.title}). ¿Me comparten ficha técnica y cotización?`
+                        `Hola KALMA POWER, me interesa la planta de ${m.power} (${m.title}). ¿Me comparten ficha técnica y cotización?`,
+                        "web_catalog"
                       )}
                       target="_blank"
                       rel="noopener noreferrer"

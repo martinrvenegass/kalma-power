@@ -188,7 +188,7 @@ export default function Chatbot() {
             {done && (
               <div className="space-y-3 pt-1">
                 <a
-                  href={waLink(summary())}
+                  href={waLink(summary(), "web_chatbot")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full !py-2.5 text-xs"
@@ -211,7 +211,7 @@ export default function Chatbot() {
                       Llamar
                     </a>
                     <a
-                      href={waLink(summary())}
+                      href={waLink(summary(), "web_chatbot")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex flex-col items-center gap-1 rounded-lg border border-navy-900/15 py-2 text-[0.65rem] font-bold uppercase tracking-wide text-navy-900 transition hover:bg-sky-light"

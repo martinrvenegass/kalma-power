@@ -105,7 +105,7 @@ export default function Footer() {
                 {COMPANY.whatsappNumber}
               </a>
               <a
-                href={waLink("Hola KALMA POWER, quiero más información.")}
+                href={waLink("Hola KALMA POWER, quiero más información.", "web_footer")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 text-sm font-bold text-lima"

@@ -43,7 +43,7 @@ export default function Hero() {
                 Llamar ahora
               </a>
               <a
-                href={waLink("Hola KALMA POWER, quiero información sobre generadores.")}
+                href={waLink("Hola KALMA POWER, quiero información sobre generadores.", "web_hero")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
