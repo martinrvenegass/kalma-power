@@ -18,6 +18,7 @@ const LINKS = [
       { label: "250 – 500 kW · Línea industrial", href: "#rango-industrial" },
       { label: "1000 – 2500 kW · Alta potencia", href: "#rango-alta-potencia" },
       { label: "Equipos especiales", href: "#equipos" },
+      { label: "Portátiles a gasolina (próximamente)", href: "#portatiles" },
     ],
   },
   {
