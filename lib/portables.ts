@@ -37,7 +37,7 @@ export const PORTABLE_MODELS: PortableModel[] = [
     specs: [
       { label: "Potencia nominal / máxima", value: "5.0 kW / 5.5 kW" },
       { label: "Voltaje y frecuencia", value: "110 / 220 V · 60 Hz" },
-      { label: "Fases", value: "Monofásico" },
+      { label: "Fases", value: "Monofásico / bifásico" },
       { label: "Combustible", value: "Gasolina" },
       { label: "Motor", value: "4 tiempos, 1 cilindro, 420 cc · 15 HP" },
       { label: "Arranque", value: "Eléctrico con batería" },
@@ -56,7 +56,7 @@ export const PORTABLE_MODELS: PortableModel[] = [
     specs: [
       { label: "Potencia nominal / máxima", value: "8.0 kW / 8.3 kW" },
       { label: "Voltaje y frecuencia", value: "110 / 220 V · 60 Hz" },
-      { label: "Fases", value: "Monofásico" },
+      { label: "Fases", value: "Monofásico / bifásico" },
       { label: "Combustible", value: "Gasolina" },
       { label: "Motor", value: "4 tiempos, 1 cilindro, 459 cc · 18 HP" },
       { label: "Arranque", value: "Eléctrico con batería" },
@@ -75,7 +75,7 @@ export const PORTABLE_MODELS: PortableModel[] = [
     specs: [
       { label: "Potencia nominal / máxima", value: "9.0 kW / 10.0 kW" },
       { label: "Voltaje y frecuencia", value: "110 / 220 V · 60 Hz" },
-      { label: "Fases", value: "Monofásico" },
+      { label: "Fases", value: "Monofásico / bifásico" },
       { label: "Combustible", value: "Gasolina" },
       { label: "Motor", value: "4 tiempos, 1 cilindro, 520 cc · 20 HP" },
       { label: "Arranque", value: "Eléctrico con batería" },
