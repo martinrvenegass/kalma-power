@@ -9,6 +9,7 @@ const NAV = [
   { label: "Sobre Kalma", href: "#sobre" },
   { label: "Catálogo", href: "#catalogo" },
   { label: "Equipos especiales", href: "#equipos" },
+  { label: "Portátiles", href: "#portatiles" },
   { label: "Industrias", href: "#industrias" },
   { label: "Cotización", href: "#cotizacion" },
   { label: "Contacto", href: "#contacto" },
@@ -36,7 +37,7 @@ export default function Header() {
           <Logo />
         </a>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
           {NAV.map((item) => (
             <a
               key={item.href}
@@ -51,7 +52,7 @@ export default function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={telLink()}
-            className="flex items-center gap-1.5 whitespace-nowrap text-sm font-bold text-navy-900 transition hover:text-navy-700"
+            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-bold text-navy-900 transition hover:text-navy-700 2xl:flex"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-lima text-navy-900">
               <PhoneIcon className="h-3.5 w-3.5" />

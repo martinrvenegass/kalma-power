@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Catalog from "@/components/Catalog";
 import SpecialEquipment from "@/components/SpecialEquipment";
+import PortableGenerators from "@/components/PortableGenerators";
 import Industries from "@/components/Industries";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
         <About />
         <Catalog />
         <SpecialEquipment />
+        <PortableGenerators />
         <Industries />
         <Contact />
       </main>

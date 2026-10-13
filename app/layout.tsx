@@ -12,12 +12,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kalmapower.com"),
   title: "KALMA POWER | Plantas eléctricas diésel de 10 a 2500 kW",
   description:
-    "KALMA POWER comercializa plantas eléctricas diésel de 10 a 2500 kW, de distintas marcas, para aplicaciones industriales, comerciales y de respaldo.",
+    "KALMA POWER comercializa plantas eléctricas diésel de 10 a 2500 kW, de distintas marcas, para aplicaciones industriales, comerciales y de respaldo. Próximamente: generadores portátiles a gasolina.",
   keywords: [
     "plantas eléctricas",
     "generadores industriales",
     "energía de respaldo",
     "grupos electrógenos",
+    "generadores portátiles a gasolina",
     "KALMA POWER",
   ],
   alternates: {
