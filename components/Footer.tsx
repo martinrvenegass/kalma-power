@@ -150,6 +150,9 @@ export default function Footer() {
             </div>
           )}
         </div>
+        <p className="border-t border-white/12 pb-8 pt-5 text-center text-[11px] leading-relaxed text-white/45">
+          Las imágenes de los productos son ilustrativas y pueden presentar diferencias respecto al equipo suministrado. Las características y especificaciones finales se confirmarán en la cotización.
+        </p>
       </div>
     </footer>
   );
