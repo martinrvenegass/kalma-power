@@ -11,7 +11,7 @@ export const PORTABLES_INTRO = {
   title: "Generadores portátiles a gasolina",
   badge: "Próximamente disponibles",
   arrival: "Llegada estimada a finales de 2026",
-  text: "Equipos monofásicos de 110 / 220 V para hogar, comercio pequeño, obra, campo y eventos. Déjanos tus datos por WhatsApp y te avisamos cuando estén disponibles.",
+  text: "Equipos monofásicos / bifásicos de 110 / 220 V para hogar, comercio pequeño, obra, campo y eventos. Déjanos tus datos por WhatsApp y te avisamos cuando estén disponibles.",
   notice:
     "Son equipos portátiles de operación manual. No equivalen a una planta eléctrica diésel de respaldo automático.",
 };
