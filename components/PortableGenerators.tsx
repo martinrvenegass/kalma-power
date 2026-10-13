@@ -37,14 +37,18 @@ export default function PortableGenerators() {
               id={`portatil-${m.slug}`}
               className="flex flex-col overflow-hidden rounded-2xl border border-navy-900/10 bg-white transition hover:-translate-y-1 hover:border-navy-700/30 hover:shadow-xl hover:shadow-navy-900/5"
             >
-              {/* Espacio para fotografía autorizada (pendiente) */}
-              <div
-                className="flex h-40 w-full items-center justify-center bg-navy-900/5 text-xs font-semibold uppercase tracking-wide text-navy-900/40"
-                role="img"
-                aria-label={`Fotografía del ${m.model} próximamente`}
-              >
-                Fotografía próximamente
-              </div>
+              <figure className="m-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/images/portatiles/${m.slug}.webp`}
+                  alt={`Imagen ilustrativa del generador portátil ${m.model}`}
+                  loading="lazy"
+                  className="h-48 w-full bg-white object-contain"
+                />
+                <figcaption className="border-t border-navy-900/10 bg-navy-900/5 px-3 py-1.5 text-center text-[11px] leading-snug text-navy-900/60">
+                  <strong className="font-semibold">Imagen ilustrativa.</strong> El equipo real puede variar en logotipo, marca y acabados.
+                </figcaption>
+              </figure>
               <div className="flex flex-1 flex-col p-6">
                 <p className="text-xs font-semibold uppercase tracking-wide text-navy-900/50">
                   Gasolina · Portátil
