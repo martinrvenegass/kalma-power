@@ -81,4 +81,4 @@ lib/
   prellenado y abren WhatsApp (`wa.me`). Para capturar leads en base de datos,
   conecta `QuoteForm.handleSubmit` y `Chatbot.summary` a un endpoint (por ejemplo
   un Route Handler en `app/api/lead/route.ts`).
-- El número usado en `wa.me` es `525641819907` (México +52 + 10 dígitos).
+- El número usado en `wa.me` es `525640099139` (México +52 + 10 dígitos).

@@ -75,10 +75,7 @@ export default function SpecialEquipment() {
           </div>
           <div className="shrink-0 text-center">
             <a
-              href={waLink(
-                "Hola KALMA POWER, tengo un proyecto que requiere una configuración especial. ¿Podemos revisar los detalles?",
-                "web_special"
-              )}
+              href={waLink("web_special")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

@@ -41,7 +41,7 @@ export default function QuoteForm() {
       return;
     }
     setSent(true);
-    window.open(waLink(buildMessage(), "web_form"), "_blank", "noopener,noreferrer");
+    window.open(waLink("web_form", buildMessage()), "_blank", "noopener,noreferrer");
   };
 
   if (sent) {
@@ -57,7 +57,7 @@ export default function QuoteForm() {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a
-            href={waLink(buildMessage(), "web_form")}
+            href={waLink("web_form", buildMessage())}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
