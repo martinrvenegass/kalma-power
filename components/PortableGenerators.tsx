@@ -69,10 +69,7 @@ export default function PortableGenerators() {
                 </dl>
 
                 <a
-                  href={waLink(
-                    `Hola KALMA POWER, quiero información y que me avisen cuando estén disponibles los generadores portátiles a gasolina (${m.model}).`,
-                    "web_portatiles"
-                  )}
+                  href={waLink("web_portatiles")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary mt-6 justify-center"
@@ -113,10 +110,7 @@ export default function PortableGenerators() {
 
         <div className="mt-8 text-center">
           <a
-            href={waLink(
-              "Hola KALMA POWER, quiero registrarme para que me avisen cuando lleguen los generadores portátiles a gasolina.",
-              "web_portatiles"
-            )}
+            href={waLink("web_portatiles")}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

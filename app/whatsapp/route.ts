@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { COMPANY } from "@/lib/config";
-
-// Enlace corto de WhatsApp Business (sin texto prellenado). Se usa cuando
-// /whatsapp se abre sin mensaje (Facebook, bio, QR), igual que antes.
-const SHORT_LINK = "https://wa.me/message/MQIQBZBRR4IMD1";
+import { COMPANY, WA_DEFAULT_MESSAGE } from "@/lib/config";
 
 const MAX_TEXT = 1000;
 const MAX_PARAM = 100;
@@ -31,7 +27,8 @@ export function GET(request: NextRequest) {
     if (value) tracking[key] = value.slice(0, MAX_PARAM);
   }
 
-  const text = params.get("text")?.slice(0, MAX_TEXT);
+  // Sin texto (Facebook, bio, QR) se usa el mismo mensaje único del sitio.
+  const text = params.get("text")?.slice(0, MAX_TEXT) || WA_DEFAULT_MESSAGE;
 
   // Registro TEMPORAL de diagnóstico (logs del servidor). No es analytics ni
   // atribución: no guarda teléfono, nombre, IP ni el contenido del mensaje.
@@ -39,14 +36,12 @@ export function GET(request: NextRequest) {
     JSON.stringify({
       event: "whatsapp_click",
       at: new Date().toISOString(),
-      hasText: Boolean(text),
+      hasText: params.has("text"),
       ...tracking,
     })
   );
 
-  const destination = text
-    ? `https://wa.me/${COMPANY.whatsappLink}?text=${encodeURIComponent(text)}`
-    : SHORT_LINK;
+  const destination = `https://wa.me/${COMPANY.whatsappLink}?text=${encodeURIComponent(text)}`;
 
   const response = NextResponse.redirect(destination, 307);
   response.headers.set("Cache-Control", "no-store");

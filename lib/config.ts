@@ -8,8 +8,15 @@ export const COMPANY = {
   email: "info@kalmapower.com",
 };
 
+// Mensaje único que se precarga en todos los botones de WhatsApp. No incluye
+// modelos ni potencias; el origen se registra aparte con el parámetro src.
+export const WA_DEFAULT_MESSAGE =
+  "Hola, me gustaría recibir información sobre sus plantas eléctricas.";
+
 // Los CTA pasan por /whatsapp, que redirige al WhatsApp Business oficial.
-export function waLink(message: string, src = "web") {
+// `message` solo se personaliza en el chatbot y el formulario, que envían el
+// resumen de lo que escribió el cliente.
+export function waLink(src: string, message: string = WA_DEFAULT_MESSAGE) {
   return `/whatsapp?src=${encodeURIComponent(src)}&text=${encodeURIComponent(message)}`;
 }
 

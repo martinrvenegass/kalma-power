@@ -52,10 +52,7 @@ export default function Contact() {
             </div>
             <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
               <a
-                href={waLink(
-                  "Hola KALMA POWER, quiero hablar con un asesor sobre plantas eléctricas.",
-                  "web_contact"
-                )}
+                href={waLink("web_contact")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
