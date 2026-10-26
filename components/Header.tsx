@@ -11,11 +11,15 @@ const NAV = [
   { label: "Equipos especiales", href: "#equipos" },
   { label: "Portátiles", href: "#portatiles" },
   { label: "Industrias", href: "#industrias" },
+  { label: "Blog", href: "/blog" },
   { label: "Cotización", href: "#cotizacion" },
   { label: "Contacto", href: "#contacto" },
 ];
 
-export default function Header() {
+// `home` es false fuera de la página principal: los anclajes (#sobre, etc.)
+// apuntan entonces a la portada.
+export default function Header({ home = true }: { home?: boolean }) {
+  const to = (href: string) => (home || !href.startsWith("#") ? href : `/${href}`);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -33,7 +37,7 @@ export default function Header() {
       }`}
     >
       <div className="container-lun flex h-[72px] items-center justify-between">
-        <a href="#top" aria-label={COMPANY.name}>
+        <a href={to("#top")} aria-label={COMPANY.name}>
           <Logo />
         </a>
 
@@ -41,7 +45,7 @@ export default function Header() {
           {NAV.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={to(item.href)}
               className="whitespace-nowrap text-sm font-semibold text-navy-900/80 transition hover:text-navy-700"
             >
               {item.label}
@@ -103,7 +107,7 @@ export default function Header() {
             {NAV.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={to(item.href)}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-3 text-sm font-semibold text-navy-900/80 hover:bg-sky-light"
               >

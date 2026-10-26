@@ -24,6 +24,7 @@ const LINKS = [
   {
     title: "Recursos",
     items: [
+      { label: "Blog", href: "/blog" },
       { label: "Solicitar cotización", href: "#cotizacion" },
       { label: "Asistente de cotización", href: "#top" },
       { label: "Aviso de privacidad", href: "#" },
@@ -74,7 +75,8 @@ function Social({ path, label, url }: { path: string; label: string; url: string
   );
 }
 
-export default function Footer() {
+export default function Footer({ home = true }: { home?: boolean }) {
+  const to = (href: string) => (home || !href.startsWith("#") || href === "#" ? href : `/${href}`);
   return (
     <footer className="relative overflow-hidden bg-navy-900 pt-16 text-white">
       <div className="absolute inset-x-0 top-0 h-1 bg-lima" />
@@ -126,7 +128,7 @@ export default function Footer() {
                 {col.items.map((it) => (
                   <li key={it.label}>
                     <a
-                      href={it.href}
+                      href={to(it.href)}
                       className="text-sm text-white/70 transition hover:text-white"
                     >
                       {it.label}

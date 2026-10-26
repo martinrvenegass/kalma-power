@@ -29,3 +29,5 @@ export function mailLink(subject?: string) {
     ? `mailto:${COMPANY.email}?subject=${encodeURIComponent(subject)}`
     : `mailto:${COMPANY.email}`;
 }
+
+export const SITE_URL = "https://kalmapower.com";
