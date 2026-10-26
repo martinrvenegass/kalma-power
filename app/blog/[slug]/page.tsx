@@ -129,9 +129,9 @@ export default function PostPage({ params }: Props) {
                 ))}
               </ul>
               <p className="mt-4 text-xs text-navy-900/60">
-                Este contenido es informativo. Las capacidades, características y
-                condiciones de cada equipo se confirman en la ficha técnica y en la
-                cotización.
+                Las imágenes son referenciales. Este contenido es informativo: las
+                capacidades, características y condiciones de cada equipo se confirman
+                en la ficha técnica y en la cotización.
               </p>
             </section>
 
