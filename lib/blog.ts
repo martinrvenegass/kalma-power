@@ -44,7 +44,7 @@ export const POSTS: Post[] = [
     readingMinutes: 8,
     cover: "/blog/errores-al-comprar-planta-electrica-diesel.png",
     coverAlt:
-      "Ilustración conceptual: lista de verificación y símbolo de energía sobre fondo azul marino",
+      "Imagen referencial: planta eléctrica diésel en cabina junto a casco y lista de verificación al atardecer",
     related: "costo-de-un-apagon-en-tu-empresa",
     blocks: [
       {
@@ -194,7 +194,7 @@ export const POSTS: Post[] = [
     readingMinutes: 7,
     cover: "/blog/costo-de-un-apagon-en-tu-empresa.png",
     coverAlt:
-      "Ilustración conceptual: símbolo de energía interrumpida sobre fondo azul marino",
+      "Imagen referencial: nave industrial con una mitad sin luz y otra iluminada, con planta eléctrica diésel en cabina",
     related: "errores-al-comprar-planta-electrica-diesel",
     blocks: [
       {
