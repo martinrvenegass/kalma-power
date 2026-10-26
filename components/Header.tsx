@@ -36,24 +36,24 @@ export default function Header({ home = true }: { home?: boolean }) {
         scrolled ? "bg-white/95 shadow-sm backdrop-blur" : "bg-white/80 backdrop-blur"
       }`}
     >
-      <div className="container-lun flex h-[72px] items-center justify-between">
-        <a href={to("#top")} aria-label={COMPANY.name}>
+      <div className="container-lun flex h-[72px] items-center justify-between gap-3">
+        <a href={to("#top")} aria-label={COMPANY.name} className="shrink-0">
           <Logo />
         </a>
 
-        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
+        <nav className="hidden items-center gap-3 lg:flex xl:gap-6">
           {NAV.map((item) => (
             <a
               key={item.href}
               href={to(item.href)}
-              className="whitespace-nowrap text-sm font-semibold text-navy-900/80 transition hover:text-navy-700"
+              className="whitespace-nowrap text-[13px] font-semibold text-navy-900/80 transition hover:text-navy-700 xl:text-sm"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden shrink-0 items-center gap-4 lg:flex">
           <a
             href={telLink()}
             className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-bold text-navy-900 transition hover:text-navy-700 2xl:flex"
