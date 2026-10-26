@@ -80,7 +80,7 @@ export default function PostBody({ blocks }: { blocks: Block[] }) {
           case "table":
             return (
               <div key={i} className="overflow-x-auto rounded-xl border border-navy-900/10">
-                <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+                <table className="w-full border-collapse text-left text-sm">
                   <thead className="bg-navy-700 text-white">
                     <tr>
                       {b.head.map((h) => (
@@ -94,7 +94,10 @@ export default function PostBody({ blocks }: { blocks: Block[] }) {
                     {b.rows.map((r, j) => (
                       <tr key={j} className="border-t border-navy-900/10 even:bg-sky-light/60">
                         {r.map((c, k) => (
-                          <td key={k} className="px-4 py-3 align-top">
+                          <td
+                            key={k}
+                            className={`px-4 py-3 align-top ${k === 0 ? "font-semibold text-navy-900" : ""}`}
+                          >
                             {c}
                           </td>
                         ))}
