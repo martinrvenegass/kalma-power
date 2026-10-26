@@ -194,7 +194,7 @@ export const POSTS: Post[] = [
     readingMinutes: 7,
     cover: "/blog/costo-de-un-apagon-en-tu-empresa.png",
     coverAlt:
-      "Imagen referencial: nave industrial con una mitad sin luz y otra iluminada, con planta eléctrica diésel en cabina",
+      "Imagen referencial: almacén industrial con una zona a oscuras y otra iluminada, con planta eléctrica diésel en cabina",
     related: "errores-al-comprar-planta-electrica-diesel",
     blocks: [
       {
